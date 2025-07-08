@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 
 const WhatsAppButton = () => {
-  const phoneNumber = "919961999873"; // With country code
+  const phoneNumber = "+14379084422"; // With country code
   const message = encodeURIComponent(
     "Hi! I'm interested in your services. Can we discuss more?"
   );

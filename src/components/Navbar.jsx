@@ -61,7 +61,7 @@ const Navbar = () => {
             <Link to="/faqs" className={navLinkStyle}>
               Faqs
             </Link>
-            <a href="#contact" className={navLinkStyle}>
+            <a href="/contact-us" className={navLinkStyle}>
               Contact Us
             </a>
           </div>
@@ -109,7 +109,7 @@ const Navbar = () => {
                 Faqs
               </Link>
               <a
-                href="#contact"
+                href="/contact-us"
                 className={navLinkStyle}
                 onClick={() => setIsOpen(false)}
               >

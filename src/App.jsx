@@ -7,6 +7,7 @@ import WhatsAppButton from "./components/WhatsAppButton"; // ✅ Import it
 import Home from "./pages/home";
 import About from "./pages/About";
 import FAQS from "./pages/FAQS";
+import ContactUs from "./pages/ContactUs";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/faqs" element={<FAQS />} />
+        <Route path="/contact-us" element={<ContactUs />} />
       </Routes>
       <Footer />
       <WhatsAppButton /> {/* ✅ Add here so it's globally visible */}
