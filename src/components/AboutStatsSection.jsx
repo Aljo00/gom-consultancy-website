@@ -18,7 +18,7 @@ const AboutStatsSection = () => {
   return (
     <section
       ref={ref}
-      className="w-full px-4 md:px-20 pb-20 bg-[#f0fdff] text-center"
+      className="w-full px-4 md:px-20 bg-[#f0fdff] text-center"
     >
       <motion.div
         initial={{ opacity: 0, y: 40 }}

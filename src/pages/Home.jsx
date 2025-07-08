@@ -2,6 +2,8 @@ import React from "react";
 import { FaGlobe } from "react-icons/fa";
 import happyClientsImg from "../assets/Happy clients.jpg";
 import AboutStatsSection from "../components/AboutStatsSection";
+import ClientsMarquee from "../components/ClientsMarquee";
+import HomeServices from "../components/HomeService";
 import { motion } from "framer-motion";
 
 const fadeInUp = {
@@ -93,6 +95,10 @@ const Home = () => {
 
       {/* 🔹 Overlapping Stats Section */}
       <AboutStatsSection />
+
+      <ClientsMarquee />
+
+      <HomeServices />
     </section>
   );
 };
