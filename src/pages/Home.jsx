@@ -4,6 +4,8 @@ import happyClientsImg from "../assets/Happy clients.jpg";
 import AboutStatsSection from "../components/AboutStatsSection";
 import ClientsMarquee from "../components/ClientsMarquee";
 import HomeServices from "../components/HomeService";
+import ProjectIdeaCTA from "../components/ProjectIdeaCTA";
+import Faqs from "../components/Faqs";
 import { motion } from "framer-motion";
 
 const fadeInUp = {
@@ -99,6 +101,10 @@ const Home = () => {
       <ClientsMarquee />
 
       <HomeServices />
+
+      <Faqs />
+
+      <ProjectIdeaCTA />
     </section>
   );
 };
