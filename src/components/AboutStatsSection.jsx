@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import CountUp from "react-countup";
 import { MdPerson } from "react-icons/md";
 import { useInView } from "react-intersection-observer";
+import { Link } from "react-router-dom";
 
 const stats = [
   { label: "Projects Completed", value: 541, suffix: "+" },
@@ -66,8 +67,8 @@ const AboutStatsSection = () => {
         </div>
 
         {/* 🔹 CTA Button */}
-        <a
-          href="#contact"
+        <Link
+          to="/about"
           className="group inline-flex items-center justify-center bg-blue-600 hover:bg-black text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 overflow-hidden hover:px-8"
         >
           <span className="transform group-hover:-translate-x-1 transition-all duration-300">
@@ -76,7 +77,7 @@ const AboutStatsSection = () => {
           <span className="ml-2 transform group-hover:translate-x-1 transition-all duration-300">
             →
           </span>
-        </a>
+        </Link>
       </motion.div>
     </section>
   );

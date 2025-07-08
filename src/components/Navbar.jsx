@@ -55,15 +55,15 @@ const Navbar = () => {
             <Link to="/about" className={navLinkStyle}>
               About
             </Link>
-            <a href="#services" className={navLinkStyle}>
+            <Link to="/services" className={navLinkStyle}>
               Services
-            </a>
+            </Link>
             <Link to="/faqs" className={navLinkStyle}>
               Faqs
             </Link>
-            <a href="/contact-us" className={navLinkStyle}>
+            <Link to="/contact-us" className={navLinkStyle}>
               Contact Us
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Icon */}
@@ -94,13 +94,13 @@ const Navbar = () => {
               >
                 About
               </Link>
-              <a
-                href="#services"
+              <Link
+                to="/services"
                 className={navLinkStyle}
                 onClick={() => setIsOpen(false)}
               >
                 Services
-              </a>
+              </Link>
               <Link
                 to="/faqs"
                 className={navLinkStyle}
@@ -108,13 +108,13 @@ const Navbar = () => {
               >
                 Faqs
               </Link>
-              <a
-                href="/contact-us"
+              <Link
+                to="/contact-us"
                 className={navLinkStyle}
                 onClick={() => setIsOpen(false)}
               >
                 Contact Us
-              </a>
+              </Link>
             </motion.div>
           )}
         </AnimatePresence>

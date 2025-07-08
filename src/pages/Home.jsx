@@ -1,5 +1,6 @@
 import React from "react";
 import { FaGlobe } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 import happyClientsImg from "../assets/Happy clients.jpg";
 import AboutStatsSection from "../components/AboutStatsSection";
 import ClientsMarquee from "../components/ClientsMarquee";
@@ -19,6 +20,8 @@ const fadeIn = {
 };
 
 const Home = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="w-full pt-7 px-4 md:px-8 bg-white text-center overflow-hidden">
       <div className="px-4 md:px-8 py-24 bg-white text-center">
@@ -64,12 +67,12 @@ const Home = () => {
 
         {/* 🔹 CTA Button */}
         <motion.a
-          href="#contact"
+          onClick={() => navigate("/services")}
           variants={fadeInUp}
           initial="hidden"
           animate="visible"
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="group inline-flex items-center justify-center bg-blue-600 hover:bg-black text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 overflow-hidden hover:px-8"
+          className="group inline-flex items-center justify-center bg-blue-600 hover:bg-black text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 overflow-hidden hover:px-8 cursor-pointer"
         >
           <span className="transform group-hover:-translate-x-1 transition-all duration-300">
             Get Started

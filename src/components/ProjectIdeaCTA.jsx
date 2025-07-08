@@ -1,5 +1,6 @@
 import React from "react";
 import { FaEnvelope, FaArrowRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const ProjectIdeaCTA = () => {
   return (
@@ -29,13 +30,18 @@ const ProjectIdeaCTA = () => {
           your ideas into powerful, high-performing digital solutions.
         </p>
 
-        {/* CTA Button */}
-        <a
-          href="#contact"
-          className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full text-lg font-semibold transition duration-300 shadow-lg"
+        {/* 🔹 CTA Button */}
+        <Link
+          to="/contact-us"
+          className="group inline-flex items-center justify-center bg-blue-600 hover:bg-black text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 overflow-hidden hover:px-8"
         >
-          Get In Touch <FaArrowRight />
-        </a>
+          <span className="transform group-hover:-translate-x-1 transition-all duration-300">
+            Get In Touch
+          </span>
+          <span className="ml-2 transform group-hover:translate-x-1 transition-all duration-300">
+            →
+          </span>
+        </Link>
       </div>
     </section>
   );
