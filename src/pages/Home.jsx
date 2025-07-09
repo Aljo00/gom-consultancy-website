@@ -78,7 +78,7 @@ const Home = () => {
           initial="hidden"
           animate="visible"
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="group relative inline-flex items-center justify-center font-semibold px-6 py-3 rounded-full overflow-hidden bg-gradient-to-r from-purple-500 to-pink-500 text-white transition-all duration-300"
+          className="group relative inline-flex items-center justify-center font-semibold px-6 py-3 rounded-full overflow-hidden bg-gradient-to-r from-purple-500 to-pink-500 text-white transition-all duration-300 cursor-pointer"
         >
           {/* White background fade on hover */}
           <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-full" />

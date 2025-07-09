@@ -1,20 +1,24 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { MdPerson } from "react-icons/md";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import ceoImage from "../assets/CEO.jpg";
-import Values from "../components/Values";
-import Team from "../components/Team";
+
+// Lazy load heavy components
+const Values = lazy(() => import("../components/Values"));
+const Team = lazy(() => import("../components/Team"));
 
 const About = () => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
 
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+
   const fadeInUp = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: isMobile ? 30 : 50 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: "easeOut" },
+      transition: { duration: isMobile ? 0.5 : 0.8, ease: "easeOut" },
     },
   };
 
@@ -48,12 +52,13 @@ const About = () => {
 
       {/* Content Layout */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
-        {/* Left Side: CEO Image */}
+        {/* CEO Image */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left">
           <img
             src={ceoImage}
             alt="Amal Gopal"
             className="rounded-2xl shadow-lg w-100 h-64 md:w-200 md:h-150 object-cover mb-4"
+            loading="lazy"
           />
           <h3 className="text-xl font-semibold text-purple-800">Amal Gopal</h3>
           <p className="text-gray-600 font-medium">
@@ -61,7 +66,7 @@ const About = () => {
           </p>
         </div>
 
-        {/* Right Side: Story */}
+        {/* Story */}
         <div className="text-gray-800 text-lg leading-relaxed font-medium space-y-6">
           <h2 className="text-2xl font-bold text-purple-700 mb-4">
             The Story Behind GOM Digital Consultancy
@@ -99,8 +104,17 @@ const About = () => {
         </div>
       </div>
 
-      <Values />
-      <Team />
+      {/* Lazy load Values and Team with animation fallback */}
+      <Suspense
+        fallback={
+          <div className="text-center py-10 text-purple-500 font-semibold animate-pulse">
+            Loading insights...
+          </div>
+        }
+      >
+        <Values />
+        <Team />
+      </Suspense>
     </motion.section>
   );
 };
