@@ -2,7 +2,7 @@ import React from "react";
 import { MdPerson } from "react-icons/md";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import ceoImage from "../assets/CEO.jpg"; //
+import ceoImage from "../assets/CEO.jpg";
 import Values from "../components/Values";
 import Team from "../components/Team";
 
@@ -24,20 +24,26 @@ const About = () => {
       variants={fadeInUp}
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
-      className="min-h-screen pt-25 py-20 px-6 md:px-12 bg-gradient-to-br from-[#e6f4ff] to-[#f7fbff]"
+      className="min-h-screen pt-24 py-20 px-6 md:px-12 bg-white"
     >
       {/* Capsule Heading */}
       <div className="text-center mb-6">
-        <span className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm font-semibold border border-blue-300">
-          <MdPerson size={18} className="text-blue-600" />
+        <span className="inline-flex items-center gap-2 bg-purple-100 text-purple-700 px-4 py-1 rounded-full text-sm font-semibold border border-purple-300">
+          <MdPerson size={18} className="text-purple-500" />
           ABOUT US
         </span>
       </div>
 
       {/* Hero Text */}
-      <h1 className="text-4xl md:text-5xl font-extrabold text-center text-gray-900 mb-12 leading-tight">
-        From <span className="text-blue-600 font-bold">Small Rooms</span> to{" "}
-        <span className="text-blue-600 font-bold">Big Visions</span>
+      <h1 className="text-4xl md:text-5xl font-extrabold text-center mb-12 leading-tight">
+        From{" "}
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">
+          Small Rooms
+        </span>{" "}
+        to{" "}
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">
+          Big Visions
+        </span>
       </h1>
 
       {/* Content Layout */}
@@ -49,7 +55,7 @@ const About = () => {
             alt="Amal Gopal"
             className="rounded-2xl shadow-lg w-100 h-64 md:w-200 md:h-150 object-cover mb-4"
           />
-          <h3 className="text-xl font-semibold text-blue-800">Amal Gopal</h3>
+          <h3 className="text-xl font-semibold text-purple-800">Amal Gopal</h3>
           <p className="text-gray-600 font-medium">
             CEO, GOM Digital Consultancy
           </p>
@@ -57,7 +63,7 @@ const About = () => {
 
         {/* Right Side: Story */}
         <div className="text-gray-800 text-lg leading-relaxed font-medium space-y-6">
-          <h2 className="text-2xl font-bold text-blue-700 mb-4">
+          <h2 className="text-2xl font-bold text-purple-700 mb-4">
             The Story Behind GOM Digital Consultancy
           </h2>
           <p>
@@ -86,7 +92,7 @@ const About = () => {
             started with: no shortcuts, no inflated promises. Just real results,
             creativity, and care.
           </p>
-          <p className="text-blue-700 font-semibold">
+          <p className="text-purple-700 font-semibold">
             This isn’t just digital growth — it’s about building something real.
             And we’re just getting started.
           </p>
@@ -94,7 +100,6 @@ const About = () => {
       </div>
 
       <Values />
-
       <Team />
     </motion.section>
   );

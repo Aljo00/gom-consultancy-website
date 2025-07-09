@@ -25,15 +25,17 @@ const Home = () => {
   return (
     <section className="w-full pt-7 px-4 md:px-8 bg-white text-center overflow-hidden">
       <div className="px-4 md:px-8 py-24 bg-white text-center">
-        {/* 🔹 Top Badge */}
+        {/* 🔹 Top Capsule Badge */}
         <motion.p
           variants={fadeInUp}
           initial="hidden"
           animate="visible"
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-1 rounded-full font-medium border border-blue-300 mb-6 text-sm"
+          className="inline-flex items-center gap-2 px-4 py-1 rounded-full font-medium border border-purple-300 mb-6 text-sm bg-purple-100 text-purple-700"
         >
-          <FaGlobe className="text-blue-600" />
+          <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white p-1 rounded-full">
+            <FaGlobe size={14} />
+          </span>
           CONTENT & MARKETING AGENCY
         </motion.p>
 
@@ -45,14 +47,18 @@ const Home = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight mb-6"
         >
-          Partner With The{" "}
-          <span className="text-blue-600">Most Trusted Content </span>
+          The most{" "}
+          <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
+            Trusted Content
+          </span>
           <br />
-          <span className="text-blue-600">And Marketing</span>{" "}
-          <span className="text-black"> Agency</span>
+          <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
+            and Marketing
+          </span>{" "}
+          <span className="text-black">agency</span>
         </motion.h1>
 
-        {/* 🔹 Paragraph */}
+        {/* 🔹 Description */}
         <motion.p
           variants={fadeIn}
           initial="hidden"
@@ -65,30 +71,38 @@ const Home = () => {
           and help you make more money.
         </motion.p>
 
-        {/* 🔹 CTA Button */}
-        <motion.a
+        {/* 🔹 CTA Button with Gradient Hover Effect */}
+        <motion.button
           onClick={() => navigate("/services")}
           variants={fadeInUp}
           initial="hidden"
           animate="visible"
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="group inline-flex items-center justify-center bg-blue-600 hover:bg-black text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 overflow-hidden hover:px-8 cursor-pointer"
+          className="group relative inline-flex items-center justify-center font-semibold px-6 py-3 rounded-full overflow-hidden bg-gradient-to-r from-purple-500 to-pink-500 text-white transition-all duration-300"
         >
-          <span className="transform group-hover:-translate-x-1 transition-all duration-300">
+          {/* White background fade on hover */}
+          <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-full" />
+
+          {/* Gradient Border on hover */}
+          <span className="absolute inset-0 rounded-full border-2 border-transparent group-hover:border-gradient-to-r group-hover:from-purple-500 group-hover:to-pink-500 transition-all duration-300"></span>
+
+          {/* Gradient text on hover */}
+          <span className="relative z-10 bg-none group-hover:bg-gradient-to-r from-purple-500 to-pink-500 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
             Get Started
           </span>
-          <span className="ml-2 transform group-hover:translate-x-1 transition-all duration-300">
+
+          <span className="relative z-10 ml-2 bg-none group-hover:bg-gradient-to-r from-purple-500 to-pink-500 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
             →
           </span>
-        </motion.a>
+        </motion.button>
 
-        {/* 🔹 HAPPY CLIENTS SECTION */}
+        {/* 🔹 HAPPY CLIENTS IMAGE */}
         <motion.div
           variants={fadeInUp}
           initial="hidden"
           animate="visible"
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="relative w-full bg-gray-50 text-center pb-5 pt-7"
+          className="relative w-full text-center pb-5 pt-7"
         >
           <img
             src={happyClientsImg}
@@ -98,15 +112,19 @@ const Home = () => {
         </motion.div>
       </div>
 
-      {/* 🔹 Overlapping Stats Section */}
+      {/* 🔹 About Stats Section */}
       <AboutStatsSection />
 
+      {/* 🔹 Clients Logos */}
       <ClientsMarquee />
 
+      {/* 🔹 Services Section */}
       <HomeServices />
 
+      {/* 🔹 FAQs */}
       <Faqs />
 
+      {/* 🔹 CTA Banner */}
       <ProjectIdeaCTA />
     </section>
   );

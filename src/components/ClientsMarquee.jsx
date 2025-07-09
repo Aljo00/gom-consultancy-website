@@ -31,7 +31,7 @@ const ClientsMarquee = () => {
   const repeated = [...logos, ...logos];
 
   return (
-    <section className="bg-white py-12 pb-20 pt-20 overflow-hidden w-full relative">
+    <section className="py-16 overflow-hidden w-full relative bg-white">
       <style>
         {`
           @keyframes scrollLeft {
@@ -58,13 +58,13 @@ const ClientsMarquee = () => {
         `}
       </style>
 
-      {/* 🔷 Capsule Badge */}
-      <div className="text-center mb-8">
-        <p className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-1 rounded-full font-medium border border-blue-300 text-sm">
-          <MdVerifiedUser size={16} className="text-blue-600" />
-          OUR TRUSTED CLIENTS
-        </p>
-      </div>
+      {/* 🔷 Capsule Badge - Matching Image Style */}
+      <p className="inline-flex items-center gap-2 px-4 py-1 rounded-full font-medium border border-purple-300 mb-6 text-sm bg-purple-100 text-purple-700">
+        <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white p-1 rounded-full">
+          <MdVerifiedUser size={14} />
+        </span>
+        OUR TRUSTED CLIENTS
+      </p>
 
       {/* 🔁 Row 1 (left scroll) */}
       <div className="overflow-hidden w-full">
@@ -80,8 +80,8 @@ const ClientsMarquee = () => {
         </div>
       </div>
 
-      {/* 🔁 Row 2 (right scroll, now fixed) */}
-      <div className="overflow-hidden w-full mt-8">
+      {/* 🔁 Row 2 (right scroll) */}
+      <div className="overflow-hidden w-full mt-10">
         <div className="flex gap-10 w-[200%] scrolling-row-reverse pause-on-hover">
           {repeated.map((logo, index) => (
             <img

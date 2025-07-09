@@ -50,21 +50,27 @@ const Team = () => {
       variants={fadeIn}
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
-      className="w-full py-20 px-6 md:px-12 bg-gradient-to-tr from-[#f7fbff] to-[#e0f4ff]"
+      className="w-full py-20 px-6 md:px-12 bg-white"
       id="team"
     >
       {/* Capsule Heading */}
       <div className="text-center mb-6">
-        <span className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm font-semibold border border-blue-300">
-          <MdGroup className="text-blue-600" />
+        <span className="inline-flex items-center gap-2 bg-purple-100 text-purple-700 px-4 py-1 rounded-full text-sm font-semibold border border-purple-300">
+          <MdGroup className="text-purple-600" />
           OUR TEAM
         </span>
       </div>
 
       {/* Hero Heading */}
-      <h2 className="text-4xl md:text-5xl font-extrabold text-center text-gray-900 mb-4">
-        The <span className="text-blue-600 font-bold">Brilliant Minds</span>{" "}
-        Driving <span className="text-blue-600 font-bold">Our Success</span>
+      <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-4">
+        The{" "}
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">
+          Brilliant Minds
+        </span>{" "}
+        Driving{" "}
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">
+          Our Success
+        </span>
       </h2>
 
       {/* Subheading */}
@@ -79,15 +85,15 @@ const Team = () => {
         {teamMembers.map((member, i) => (
           <div
             key={i}
-            className="bg-white rounded-xl border border-blue-100 p-6 shadow-md hover:shadow-xl transition-all duration-300 text-center"
+            className="bg-white rounded-xl border border-purple-200 p-6 shadow-md hover:shadow-xl transition-all duration-300 text-center"
           >
             <img
               src={member.image}
               alt={member.name}
               className="w-full h-100 object-cover rounded-xl mb-4 shadow-md"
             />
-            <h3 className="text-xl font-bold text-blue-800">{member.name}</h3>
-            <p className="text-blue-600 font-medium text-sm mb-2">
+            <h3 className="text-xl font-bold text-purple-700">{member.name}</h3>
+            <p className="text-purple-500 font-medium text-sm mb-2">
               {member.position}
             </p>
             <p className="text-gray-700 text-sm leading-relaxed font-medium">

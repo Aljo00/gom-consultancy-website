@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { FaChevronDown, FaChevronUp, FaQuestionCircle } from "react-icons/fa";
+import { FaChevronDown, FaQuestionCircle } from "react-icons/fa";
 import { AnimatePresence, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 const faqs = [
   {
-    question: "What services does your agency offers?",
+    question: "What services does your agency offer?",
     answer:
       "This question helps potential clients understand the range of services your agency provides, such as digital marketing, social media management, content creation, SEO, PPC, email marketing, and more.",
   },
@@ -52,23 +52,28 @@ const Faqs = () => {
       variants={sectionVariants}
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
-      className="bg-white w-full py-20 px-4 md:px-12"
+      className="w-full py-20 px-4 md:px-12"
       id="faqs"
     >
-      {/* Capsule Heading */}
+      {/* 🔹 Capsule Heading */}
       <div className="text-center mb-4">
-        <p className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-1 rounded-full font-medium border border-blue-300 text-sm">
-          <FaQuestionCircle className="text-blue-600" />
+        <p className="inline-flex items-center gap-2 px-4 py-1 rounded-full font-medium border border-purple-300 text-sm bg-purple-100 text-purple-700">
+          <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white p-1 rounded-full">
+            <FaQuestionCircle size={14} />
+          </span>
           FAQs
         </p>
       </div>
 
-      {/* Section Title */}
+      {/* 🔹 Section Title */}
       <h2 className="text-3xl md:text-5xl font-extrabold mb-12 text-center text-black">
-        Frequently <span className="text-blue-600">Asked Questions</span>
+        Frequently{" "}
+        <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
+          Asked Questions
+        </span>
       </h2>
 
-      {/* FAQ List */}
+      {/* 🔹 FAQ List */}
       <div className="max-w-5xl mx-auto space-y-10">
         {faqs.map((faq, i) => (
           <div
@@ -81,13 +86,13 @@ const Faqs = () => {
               onClick={() => toggle(i)}
             >
               <h3 className="text-lg md:text-xl font-semibold flex items-center text-black">
-                <span className="text-blue-500 font-bold mr-2">
+                <span className="text-purple-500 font-bold mr-2">
                   {String(i + 1).padStart(2, "0")}/
                 </span>
                 {faq.question}
               </h3>
               <motion.span
-                className="text-blue-600"
+                className="text-purple-600"
                 initial={false}
                 animate={{ rotate: openIndex === i ? 180 : 0 }}
                 transition={{ duration: 0.2 }}

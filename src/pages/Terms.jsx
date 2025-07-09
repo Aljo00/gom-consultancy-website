@@ -21,25 +21,29 @@ const Terms = () => {
       variants={fadeInUp}
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
-      className="min-h-screen pt-28 pb-20 px-6 md:px-20 bg-gradient-to-br from-[#e6f4ff] to-[#f7fbff]"
+      className="min-h-screen pt-28 pb-20 px-6 md:px-20 bg-white"
     >
       {/* Capsule Header */}
       <div className="text-center mb-6">
-        <span className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm font-semibold border border-blue-300">
-          <MdGavel size={18} className="text-blue-600" />
+        <span className="inline-flex items-center gap-2 bg-purple-100 text-purple-700 px-4 py-1 rounded-full text-sm font-semibold border border-purple-300">
+          <MdGavel size={18} className="text-purple-500" />
           Terms & Conditions
         </span>
       </div>
 
       {/* Hero Heading */}
-      <h1 className="text-4xl md:text-5xl font-extrabold text-center text-gray-900 mb-10 leading-tight">
-        Our <span className="text-blue-600">Terms</span> of Engagement
+      <h1 className="text-4xl md:text-5xl font-extrabold text-center mb-10 leading-tight">
+        Our{" "}
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">
+          Terms
+        </span>{" "}
+        of Engagement
       </h1>
 
       {/* Terms Content */}
       <div className="max-w-4xl mx-auto text-gray-800 text-lg leading-relaxed space-y-8 font-medium">
         <div>
-          <h2 className="text-2xl font-semibold text-blue-700 mb-2">
+          <h2 className="text-2xl font-semibold text-purple-700 mb-2">
             1. Acceptance of Terms
           </h2>
           <p>
@@ -50,7 +54,7 @@ const Terms = () => {
         </div>
 
         <div>
-          <h2 className="text-2xl font-semibold text-blue-700 mb-2">
+          <h2 className="text-2xl font-semibold text-purple-700 mb-2">
             2. Services
           </h2>
           <p>
@@ -61,7 +65,7 @@ const Terms = () => {
         </div>
 
         <div>
-          <h2 className="text-2xl font-semibold text-blue-700 mb-2">
+          <h2 className="text-2xl font-semibold text-purple-700 mb-2">
             3. Client Responsibilities
           </h2>
           <p>
@@ -72,7 +76,7 @@ const Terms = () => {
         </div>
 
         <div>
-          <h2 className="text-2xl font-semibold text-blue-700 mb-2">
+          <h2 className="text-2xl font-semibold text-purple-700 mb-2">
             4. Payment Terms
           </h2>
           <p>
@@ -83,7 +87,7 @@ const Terms = () => {
         </div>
 
         <div>
-          <h2 className="text-2xl font-semibold text-blue-700 mb-2">
+          <h2 className="text-2xl font-semibold text-purple-700 mb-2">
             5. Confidentiality
           </h2>
           <p>

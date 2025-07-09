@@ -1,4 +1,3 @@
-// src/pages/ContactUs.jsx
 import React from "react";
 import { MdPhone, MdEmail, MdLocationOn } from "react-icons/md";
 import { SiWhatsapp } from "react-icons/si";
@@ -24,19 +23,24 @@ const ContactUs = () => {
       variants={fadeInUp}
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
-      className="min-h-screen py-20 pt-35 px-6 md:px-12 bg-gradient-to-br from-[#e6f4ff] to-[#f7fbff]"
+      className="min-h-screen py-20 pt-35 px-6 md:px-12 bg-gradient-to-br from-purple-50 via-pink-50 to-white"
     >
       {/* Capsule Heading */}
       <div className="text-center mb-6">
-        <span className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm font-semibold border border-blue-300">
-          <MdPhone size={18} className="text-blue-600" />
-          Contact Us
+        <span className="inline-flex items-center gap-2 px-4 py-1 rounded-full font-medium border border-purple-300 mb-6 text-sm bg-purple-100 text-purple-700">
+          <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white p-1 rounded-full">
+            <MdPhone size={14} />
+          </span>
+          CONTACT US
         </span>
       </div>
 
       {/* Hero Heading */}
-      <h1 className="text-4xl md:text-5xl font-extrabold text-center text-gray-900 mb-4 leading-tight">
-        Let’s <span className="text-blue-600">Connect & Collaborate</span>
+      <h1 className="text-4xl md:text-5xl font-extrabold text-center mb-4 leading-tight">
+        Let’s{" "}
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">
+          Connect & Collaborate
+        </span>
       </h1>
 
       {/* Sub Text */}
@@ -50,31 +54,32 @@ const ContactUs = () => {
         {/* Phone / WhatsApp Card */}
         <motion.div
           whileHover={{ y: -4, scale: 1.01 }}
-          className="bg-white rounded-2xl shadow-lg p-6 border border-blue-100 text-center"
+          className="bg-white rounded-2xl shadow-lg p-6 border border-purple-100 text-center"
         >
-          <div className="flex justify-center items-center text-blue-600 mb-4">
+          <div className="flex justify-center items-center text-green-500 mb-4">
             <MdPhone size={40} />
           </div>
           <h3 className="text-xl font-semibold text-gray-800 mb-2">
             Phone / WhatsApp
           </h3>
-          <p className="text-gray-700 mb-4 font-medium">+14379084422</p>
+          <p className="text-gray-700 mb-4 font-medium">+1 437 908 4422</p>
           <a
             href="https://wa.me/+14379084422?text=Hi! I'm interested in your services. Can we discuss more?"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition"
+            className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe59] text-white font-semibold py-2 px-5 rounded-full transition"
           >
-            <SiWhatsapp className="inline mr-2" /> Send WhatsApp
+            <SiWhatsapp size={18} />
+            Send WhatsApp
           </a>
         </motion.div>
 
         {/* Email Card */}
         <motion.div
           whileHover={{ y: -4, scale: 1.01 }}
-          className="bg-white rounded-2xl shadow-lg p-6 border border-blue-100 text-center"
+          className="bg-white rounded-2xl shadow-lg p-6 border border-purple-100 text-center"
         >
-          <div className="flex justify-center items-center text-blue-600 mb-4">
+          <div className="flex justify-center items-center text-red-500 mb-4">
             <MdEmail size={40} />
           </div>
           <h3 className="text-xl font-semibold text-gray-800 mb-2">Email</h3>
@@ -84,7 +89,7 @@ const ContactUs = () => {
           <a
             href="mailto:gomdigitalconsultancy@gmail.com?subject=Collaboration%20Request&body=Hi%20GOM%20Team%2C%20I%20would%20like%20to%20collaborate%20with%20you..."
             target="_blank"
-            className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-red-500 to-pink-500 hover:from-pink-500 hover:to-red-500 text-white font-semibold py-2 px-5 rounded-full transition"
           >
             Send Email
           </a>
@@ -93,9 +98,9 @@ const ContactUs = () => {
         {/* Address Card */}
         <motion.div
           whileHover={{ y: -4, scale: 1.01 }}
-          className="bg-white rounded-2xl shadow-lg p-6 border border-blue-100 text-center"
+          className="bg-white rounded-2xl shadow-lg p-6 border border-purple-100 text-center"
         >
-          <div className="flex justify-center items-center text-blue-600 mb-4">
+          <div className="flex justify-center items-center text-purple-600 mb-4">
             <MdLocationOn size={40} />
           </div>
           <h3 className="text-xl font-semibold text-gray-800 mb-2">
@@ -109,7 +114,6 @@ const ContactUs = () => {
         </motion.div>
       </div>
 
-      <ClientsMarquee />
     </motion.section>
   );
 };

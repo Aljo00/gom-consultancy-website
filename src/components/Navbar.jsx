@@ -9,9 +9,8 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   const navLinkStyle =
-    "font-semibold px-4 py-2 rounded-xl transition-all duration-300 hover:bg-blue-600 hover:text-white text-blue-700 cursor-pointer";
+    "font-semibold px-4 py-2 rounded-xl transition-all duration-300 text-purple-700 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white";
 
-  // Handle scroll position
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
@@ -32,11 +31,11 @@ const Navbar = () => {
       <div
         className={`transition-all duration-300 ${
           isScrolled
-            ? "rounded-2xl border border-blue-100 bg-white/30 backdrop-blur-md backdrop-saturate-150 shadow-xl px-6 py-3"
-            : "bg-gradient-to-br from-[#d2f0ff] to-[#f0f8ff] px-4 md:px-6 py-4"
+            ? "rounded-2xl border border-purple-200 bg-white/30 backdrop-blur-md backdrop-saturate-150 shadow-xl px-6 py-3"
+            : "px-4 md:px-6 py-4"
         }`}
       >
-        {/* 🔹 Top Row */}
+        {/* Top Row */}
         <div className="flex items-center justify-between">
           {/* Logo + Brand */}
           <Link to="/" className="flex items-center space-x-3 cursor-pointer">
@@ -45,8 +44,8 @@ const Navbar = () => {
               alt="GOM Logo"
               className="w-9 h-9 rounded-full object-cover"
             />
-            <span className="text-blue-800 text-xl md:text-2xl font-bold tracking-wide">
-              Gom Digital Consultancy
+            <span className="text-xl md:text-2xl font-bold tracking-wide bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
+              GOM DIGITAL CONSULTANCY
             </span>
           </Link>
 
@@ -70,14 +69,14 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-blue-700 cursor-pointer"
+              className="text-purple-700 cursor-pointer"
             >
               {isOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>
         </div>
 
-        {/* 🔹 Mobile Dropdown */}
+        {/* Mobile Dropdown */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
