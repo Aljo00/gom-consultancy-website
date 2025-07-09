@@ -54,18 +54,46 @@ const Footer = () => {
             Explore
           </h3>
           <ul className="space-y-3">
-            {["about", "services", "faqs", "contact"].map((item) => (
-              <li key={item}>
-                <ScrollLink
-                  to={item}
-                  smooth={true}
-                  duration={500}
-                  className="cursor-pointer text-gray-600 font-medium transition relative inline-block hover:text-purple-700 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-1 after:bg-gradient-to-r after:from-purple-500 after:to-pink-500 after:rounded-full hover:after:w-full after:transition-all after:duration-300"
-                >
-                  {item.charAt(0).toUpperCase() + item.slice(1)}
-                </ScrollLink>
-              </li>
-            ))}
+            <li>
+              <Link
+                to="/"
+                className="relative inline-block text-gray-600 font-medium transition hover:text-purple-700 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-1 after:bg-gradient-to-r after:from-purple-500 after:to-pink-500 after:rounded-full hover:after:w-full after:transition-all after:duration-300"
+              >
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/about"
+                className="relative inline-block text-gray-600 font-medium transition hover:text-purple-700 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-1 after:bg-gradient-to-r after:from-purple-500 after:to-pink-500 after:rounded-full hover:after:w-full after:transition-all after:duration-300"
+              >
+                About Us
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/services"
+                className="relative inline-block text-gray-600 font-medium transition hover:text-purple-700 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-1 after:bg-gradient-to-r after:from-purple-500 after:to-pink-500 after:rounded-full hover:after:w-full after:transition-all after:duration-300"
+              >
+                Services
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/faqs"
+                className="relative inline-block text-gray-600 font-medium transition hover:text-purple-700 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-1 after:bg-gradient-to-r after:from-purple-500 after:to-pink-500 after:rounded-full hover:after:w-full after:transition-all after:duration-300"
+              >
+                FAQs
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/contact-us"
+                className="relative inline-block text-gray-600 font-medium transition hover:text-purple-700 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-1 after:bg-gradient-to-r after:from-purple-500 after:to-pink-500 after:rounded-full hover:after:w-full after:transition-all after:duration-300"
+              >
+                Contact Us
+              </Link>
+            </li>
             <li>
               <Link
                 to="/terms"

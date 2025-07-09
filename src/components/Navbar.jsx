@@ -58,7 +58,7 @@ const Navbar = () => {
               Services
             </Link>
             <Link to="/faqs" className={navLinkStyle}>
-              Faqs
+              FAQs
             </Link>
             <Link to="/contact-us" className={navLinkStyle}>
               Contact Us
@@ -105,7 +105,7 @@ const Navbar = () => {
                 className={navLinkStyle}
                 onClick={() => setIsOpen(false)}
               >
-                Faqs
+                FAQs
               </Link>
               <Link
                 to="/contact-us"

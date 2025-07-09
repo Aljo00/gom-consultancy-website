@@ -37,7 +37,10 @@ const Terms = () => {
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">
           Terms
         </span>{" "}
-        of Engagement
+        of{" "}
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">
+          Engagement
+        </span>
       </h1>
 
       {/* Terms Content */}
