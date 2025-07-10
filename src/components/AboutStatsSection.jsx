@@ -34,15 +34,15 @@ const AboutStatsSection = () => {
 
         {/* 🔹 Main Heading */}
         <h2 className="text-4xl md:text-5xl font-extrabold leading-tight tracking-tight mb-6">
-          Helping You Build a{" "}
+          Build{" "}
           <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
-            Powerful Brand
+            Powerful Brand Execution
           </span>{" "}
-          <br />
-          Through{" "}
+          <br />&{" "}
           <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
-            Strategy & Execution
-          </span>
+            Strategy
+          </span>{" "}
+          with us{" "}
         </h2>
 
         {/* 🔹 Description */}

@@ -2,39 +2,68 @@ import React, { useState } from "react";
 import { FaChevronDown, FaQuestionCircle } from "react-icons/fa";
 import { AnimatePresence, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { Link } from "react-router-dom";
 
 const faqs = [
   {
-    question: "What services does your agency offer?",
+    question: "What makes GOM different from other digital agencies?",
     answer:
-      "This question helps potential clients understand the range of services your agency provides, such as digital marketing, social media management, content creation, SEO, PPC, email marketing, and more.",
+      "We focus on personalized strategy, consistent communication, and result-driven execution. We treat your brand like our own, providing dedicated support and allowing a maximum of 3 revisions per creative.",
   },
   {
-    question: "How can your agency help my business?",
+    question: "How does your content creation process work?",
     answer:
-      "We identify growth opportunities, enhance your brand visibility, and use strategic content and marketing to boost your conversions.",
+      "You send us raw photos and videos → We plan and create engaging content → You review and request revisions (if needed) → We schedule and publish it.",
+  },
+  {
+    question: "How many revisions do you offer?",
+    answer:
+      "We allow a maximum of 3 revisions per creative. Additional revisions may be charged based on scope.",
+  },
+  {
+    question: "What is the typical timeline for deliverables?",
+    answer:
+      "We usually deliver content within 1–3 working days, depending on the complexity of the task.",
+  },
+  {
+    question: "Can I track the progress of my project?",
+    answer:
+      "Yes, we maintain transparency by updating you regularly through shared project dashboards or communication channels like WhatsApp, Google chat.",
+  },
+  {
+    question: "Do you offer long-term or monthly packages?",
+    answer:
+      "Yes, we offer both project-based services and monthly retainers depending on your needs and goals.",
+  },
+  {
+    question: "What industries do you specialize in?",
+    answer:
+      "We work with a wide range of industries including, Fashion & Lifestyle, Events & Weddings, Travel & Tourism, Local BusinessesYouTube, Content Creators",
+  },
+  {
+    question: "What platforms do you manage?",
+    answer: "We primarily manage: Youtube, Instagram",
   },
   {
     question: "What is your pricing structure?",
     answer:
-      "We offer flexible pricing based on project scope and goals. We provide transparent estimates with no hidden costs.",
+      "Our pricing depends on the scope of work, deliverables, and duration. We offer transparent and customized quotes after understanding your requirements.",
   },
   {
-    question: "What sets your agency apart from competitors?",
+    question: "Do you work with international clients?",
     answer:
-      "We combine creativity, data-driven insights, and personalized strategies to deliver impactful results. We care about your brand like our own.",
+      "Yes, we work globally. Our team operates flexibly, and key members like Amal Gopal coordinate based on Toronto time for North American clients.",
   },
   {
-    question: "How do you stay up-to-date with trends?",
+    question: "How do we get started?",
     answer:
-      "Our team constantly researches, tests, and adapts to the latest industry changes to keep your business ahead of the curve.",
+      "Simply contact us through WhatsApp, email, or our website. We’ll schedule a discovery call to understand your goals and propose a customized plan.",
   },
 ];
 
-const Faqs = () => {
+const Faqs = ({ showAll = false }) => {
   const [openIndex, setOpenIndex] = useState(null);
   const toggle = (i) => setOpenIndex((prev) => (prev === i ? null : i));
-
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
 
   const sectionVariants = {
@@ -46,6 +75,8 @@ const Faqs = () => {
     },
   };
 
+  const displayedFaqs = showAll ? faqs : faqs.slice(0, 5);
+
   return (
     <motion.section
       ref={ref}
@@ -55,7 +86,7 @@ const Faqs = () => {
       className="w-full py-20 px-4 md:px-12"
       id="faqs"
     >
-      {/* 🔹 Capsule Heading */}
+      {/* Capsule Heading */}
       <div className="text-center mb-4">
         <p className="inline-flex items-center gap-2 px-4 py-1 rounded-full font-medium border border-purple-300 text-sm bg-purple-100 text-purple-700">
           <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white p-1 rounded-full">
@@ -64,31 +95,25 @@ const Faqs = () => {
           FAQs
         </p>
       </div>
-
-      {/* 🔹 Section Title */}
+      {/* Hero Text */}
       <h2 className="text-3xl md:text-5xl font-extrabold mb-12 text-center text-black">
         Frequently{" "}
         <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
           Asked Questions
         </span>
       </h2>
-
-      {/* 🔹 FAQ List */}
+      {/* FAQ List */}
       <div className="max-w-5xl mx-auto space-y-10">
-        {faqs.map((faq, i) => (
+        {displayedFaqs.map((faq, i) => (
           <div
             key={i}
             className="border-b border-gray-300/20 pb-4 transition-all duration-300"
           >
-            {/* Question Row */}
             <div
               className="flex items-center justify-between cursor-pointer"
               onClick={() => toggle(i)}
             >
               <h3 className="text-lg md:text-xl font-semibold flex items-center text-black">
-                <span className="text-purple-500 font-bold mr-2">
-                  {String(i + 1).padStart(2, "0")}/
-                </span>
                 {faq.question}
               </h3>
               <motion.span
@@ -101,7 +126,6 @@ const Faqs = () => {
               </motion.span>
             </div>
 
-            {/* Answer Animated */}
             <AnimatePresence>
               {openIndex === i && (
                 <motion.div
@@ -119,6 +143,18 @@ const Faqs = () => {
           </div>
         ))}
       </div>
+
+      {/* Load More Button */}
+      {!showAll && (
+        <div className="text-center mt-12">
+          <Link
+            to="/faqs"
+            className="inline-block px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold rounded-full shadow-lg hover:scale-105 transition-transform duration-300"
+          >
+            View All FAQs
+          </Link>
+        </div>
+      )}
     </motion.section>
   );
 };

@@ -3,10 +3,10 @@ import { MdGroup } from "react-icons/md";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-// Image imports
 import athulImg from "../assets/Members/Athul.jpg";
 import riyasImg from "../assets/Members/Riyas.jpg";
 import harithaImg from "../assets/Members/Haritha.jpg";
+import aljoImg from "../assets/Members/Aljo.jpg";
 
 const teamMembers = [
   {
@@ -30,7 +30,21 @@ const teamMembers = [
       "Leads the marketing vision at GOM, blending strategy, creativity, and data to grow brands with impact and authenticity.",
     image: harithaImg,
   },
+  {
+    name: "Aljo Joju",
+    position: "Developer",
+    description:
+      "Drives the technological backbone of GOM, crafting scalable digital solutions with precision and passion. Blends creativity with code to deliver seamless, user-focused web experiences that reflect the brand’s innovation and excellence.",
+    image: aljoImg,
+  },
 ];
+
+// Group in pairs
+const chunkArray = (arr, size) => {
+  return Array.from({ length: Math.ceil(arr.length / size) }, (_, i) =>
+    arr.slice(i * size, i * size + size)
+  );
+};
 
 const Team = () => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.15 });
@@ -80,25 +94,44 @@ const Team = () => {
         potential.
       </p>
 
-      {/* Team Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-        {teamMembers.map((member, i) => (
+      {/* Team Cards - 2 per row */}
+      <div className="flex flex-col gap-12 max-w-7xl mx-auto">
+        {chunkArray(teamMembers, 2).map((row, rowIndex) => (
           <div
-            key={i}
-            className="bg-white rounded-xl border border-purple-200 p-6 shadow-md hover:shadow-xl transition-all duration-300 text-center"
+            key={rowIndex}
+            className="flex flex-col md:flex-row gap-8 justify-center"
           >
-            <img
-              src={member.image}
-              alt={member.name}
-              className="w-full h-100 object-cover rounded-xl mb-4 shadow-md"
-            />
-            <h3 className="text-xl font-bold text-purple-700">{member.name}</h3>
-            <p className="text-purple-500 font-medium text-sm mb-2">
-              {member.position}
-            </p>
-            <p className="text-gray-700 text-sm leading-relaxed font-medium">
-              {member.description}
-            </p>
+            {row.map((member, i) => (
+              <motion.div
+                key={i}
+                whileHover={{
+                  scale: 1.03,
+                  boxShadow: "0 15px 35px rgba(168, 85, 247, 0.25)",
+                  transition: { duration: 0.3 },
+                }}
+                className="flex flex-col md:flex-row gap-6 flex-1 bg-white border border-purple-200 rounded-xl p-6"
+              >
+                {/* Image */}
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-full md:w-[240px] h-[240px] object-cover rounded-xl shadow-md"
+                />
+
+                {/* Text */}
+                <div className="flex flex-col justify-center text-left">
+                  <h3 className="text-2xl font-bold text-purple-700">
+                    {member.name}
+                  </h3>
+                  <p className="text-pink-500 font-medium text-sm mb-2">
+                    {member.position}
+                  </p>
+                  <p className="text-gray-700 text-base leading-relaxed font-medium">
+                    {member.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         ))}
       </div>

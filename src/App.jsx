@@ -11,10 +11,12 @@ import ContactUs from "./pages/ContactUs";
 import Services from "./pages/Services";
 import Terms from "./pages/Terms";
 import ScrollToTop from "./components/ScrollToTop";
+import PopupModal from "./components/PopupModal";
 
 function App() {
   return (
     <Router>
+      <PopupModal />
       <ScrollToTop />
       <Navbar />
       <Routes>

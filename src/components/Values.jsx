@@ -74,9 +74,8 @@ const Values = () => {
 
       {/* Description */}
       <p className="text-lg text-center text-gray-700 font-medium max-w-2xl mx-auto mb-12">
-        We partner with you to craft a successful business model that
-        authentically reflects your unique vision while achieving your desired
-        conversion goals.
+        Partnering with you in crafting and authentically reflecting on
+        successful business goals, fulfilling your conversion goals.
       </p>
 
       {/* Cards */}

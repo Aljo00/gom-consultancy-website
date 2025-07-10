@@ -9,7 +9,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   const navLinkStyle =
-    "font-semibold px-4 py-2 rounded-xl transition-all duration-300 text-purple-700 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white";
+    "relative font-semibold px-2 py-1 text-purple-700 transition-all duration-300 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[3px] after:bg-gradient-to-r after:from-purple-500 after:to-pink-500 after:rounded-full after:w-0 hover:after:w-full after:transition-all after:duration-300";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,7 +32,7 @@ const Navbar = () => {
         className={`transition-all duration-300 ${
           isScrolled
             ? "rounded-2xl border border-purple-200 bg-white/30 backdrop-blur-md backdrop-saturate-150 shadow-xl px-6 py-3"
-            : "px-4 md:px-6 py-4"
+            : "px-4 md:px-6 py-4 border-b-4 border-purple-500/50"
         }`}
       >
         {/* Top Row */}
@@ -51,6 +51,9 @@ const Navbar = () => {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex space-x-6">
+            <Link to="/" className={navLinkStyle}>
+              Home
+            </Link>
             <Link to="/about" className={navLinkStyle}>
               About
             </Link>

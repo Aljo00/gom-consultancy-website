@@ -55,7 +55,7 @@ const Home = () => {
           <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
             and Marketing
           </span>{" "}
-          <span className="text-black">agency</span>
+          <span className="text-black">Agency</span>
         </motion.h1>
 
         {/* 🔹 Description */}
@@ -122,7 +122,7 @@ const Home = () => {
       <HomeServices />
 
       {/* 🔹 FAQs */}
-      <Faqs />
+      <Faqs showAll={false} />
 
       {/* 🔹 CTA Banner */}
       <ProjectIdeaCTA />

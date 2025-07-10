@@ -55,7 +55,7 @@ const services = [
   {
     icon: <FaQuoteRight size={32} className="text-rose-400" />,
     title: "Branding & Storytelling",
-    text: "We help brands find their voice and tell their story in a way that connects. From logo to brand tone, we build identities that are authentic, memorable, and emotionally engaging.",
+    text: "Creating a strong brand impact with unique storytelling and visual merchandising. From logo to brand tone, we build identities that are authentic, memorable, and emotionally engaging.",
   },
   {
     icon: <FaVideo size={32} className="text-purple-500" />,
@@ -132,7 +132,7 @@ const HomeServices = () => {
           transition={{ duration: 0.7 }}
           className="text-gray-700 max-w-3xl mx-auto text-lg font-medium mb-12"
         >
-          We partner with you to craft a successful business model that
+          Partner with us to craft a successful business model that
           authentically reflects your unique vision while achieving your desired
           conversion goals.
         </motion.p>
