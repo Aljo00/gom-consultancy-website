@@ -11,6 +11,11 @@ import {
   FaVideo,
   FaUsers,
   FaBookOpen,
+  FaUserCircle,
+  FaWpforms,
+  FaServer,
+  FaSearch,
+  FaTools,
 } from "react-icons/fa";
 import { MdDesignServices } from "react-icons/md";
 import { motion } from "framer-motion";
@@ -71,6 +76,41 @@ const services = [
     icon: <FaBookOpen size={32} className="text-fuchsia-700" />,
     title: "Strategic Content Creation",
     text: "We merge creativity with strategy to craft content that educates, entertains, and converts. Every word, image, or video is backed by intent and insight.",
+  },
+  {
+    icon: <FaUserCircle size={32} className="text-fuchsia-700" />,
+    title: "Personal Portfolio",
+    text: "Tailored portfolio websites that showcase your skills, projects, experience, and online presence in a clean, modern layout to help you stand out.",
+  },
+  {
+    icon: <FaRocket size={32} className="text-fuchsia-700" />,
+    title: "Landing pages for business",
+    text: "Conversion-focused landing pages designed to capture leads, promote services or campaigns, and drive traffic effectively with clear CTAs.",
+  },
+  {
+    icon: <FaWpforms size={32} className="text-fuchsia-700" />,
+    title: "CMS Integration",
+    text: "Integration of headless CMS platforms like Sanity or WordPress to make content management effortless and dynamic for your team.",
+  },
+  {
+    icon: <FaGlobe size={32} className="text-fuchsia-700" />,
+    title: "Full website development",
+    text: "End-to-end development of fully responsive, fast-loading websites using modern tech stacks like React, Tailwind CSS, and backend integration.",
+  },
+  {
+    icon: <FaServer size={32} className="text-fuchsia-700" />,
+    title: "Hosting and Deployment",
+    text: "Secure hosting and seamless deployment setup with platforms like Vercel, Netlify, or custom servers—plus after-deployment support.",
+  },
+  {
+    icon: <FaSearch size={32} className="text-fuchsia-700" />,
+    title: "SEO-Friendly Development",
+    text: "Implementation of SEO best practices including structured data, fast performance, semantic HTML, and responsive mobile-first design.",
+  },
+  {
+    icon: <FaTools size={32} className="text-fuchsia-700" />,
+    title: "Custom Website",
+    text: "We build highly customized websites tailored to your unique goals—featuring interactive elements, animations, integrations, and more.",
   },
 ];
 
