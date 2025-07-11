@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-import samsung from "../assets/logo/samsung.png"
-import benq from "../assets/logo/benq.png"
-import amd from "../assets/logo/amd.png"
+import samsung from "../assets/logo/samsung.png";
+import benq from "../assets/logo/benq.png";
+import amd from "../assets/logo/amd.png";
 
 const PopupModal = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -15,7 +15,7 @@ const PopupModal = () => {
 
     const interval = setInterval(() => {
       showPopup();
-    }, 900000); // 15 minutes
+    }, 900000); // every 15 minutes
 
     return () => clearInterval(interval);
   }, []);
@@ -24,7 +24,7 @@ const PopupModal = () => {
     <AnimatePresence>
       {isVisible && (
         <>
-          {/* Background Blur with Gradient */}
+          {/* Background Blur */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -32,22 +32,21 @@ const PopupModal = () => {
             className="fixed inset-0 bg-black/40 backdrop-blur-md z-[998]"
           />
 
-          {/* Modern Popup Banner */}
+          {/* Modal */}
           <motion.div
-            initial={{ scale: 0.8, opacity: 0, y: 20 }}
+            initial={{ scale: 0.9, opacity: 0, y: 20 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
-            exit={{ scale: 0.8, opacity: 0, y: 20 }}
+            exit={{ scale: 0.9, opacity: 0, y: 20 }}
             transition={{
               duration: 0.4,
               ease: [0.25, 0.46, 0.45, 0.94],
               type: "spring",
               stiffness: 300,
             }}
-            className="fixed left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[999] w-full max-w-md mx-4"
+            className="fixed inset-0 z-[999] flex items-center justify-center px-4"
           >
-            {/* Glassmorphism Card */}
-            <div className="relative bg-white/95 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/20 overflow-hidden">
-              {/* Animated Background Elements */}
+            <div className="relative w-full max-w-md bg-white/95 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/20 overflow-hidden">
+              {/* Animated Background */}
               <div className="absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-full blur-3xl animate-pulse"></div>
               <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-gradient-to-tr from-pink-400/20 to-purple-400/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
 
@@ -73,9 +72,9 @@ const PopupModal = () => {
                 </svg>
               </motion.button>
 
-              {/* Main Content */}
+              {/* Modal Content */}
               <div className="relative z-10">
-                {/* Icon/Badge */}
+                {/* Icon Badge */}
                 <div className="flex justify-center mb-6">
                   <div className="p-3 rounded-2xl bg-gradient-to-r from-purple-500 to-pink-500 shadow-lg">
                     <svg
@@ -102,13 +101,13 @@ const PopupModal = () => {
                   </span>
                 </h2>
 
-                {/* Subtitle */}
+                {/* Subtext */}
                 <p className="text-center text-gray-600 text-sm mb-8 leading-relaxed">
                   Create a strong media footprint by achieving your desired
                   conversion goals.
                 </p>
 
-                {/* WhatsApp Button */}
+                {/* WhatsApp CTA Button */}
                 <motion.div
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
@@ -131,43 +130,34 @@ const PopupModal = () => {
                   </a>
                 </motion.div>
 
-                {/* Trust Badge */}
+                {/* Logos / Trust */}
                 <div className="flex items-center justify-center gap-3 mb-4">
                   <div className="flex -space-x-3">
-                    <div className="w-12 h-12 rounded-full border-2 border-white bg-white flex items-center justify-center overflow-hidden shadow-md">
-                      <img
-                        src={samsung}
-                        alt="Samsung"
-                        className="w-8 h-8 object-contain"
-                      />
-                    </div>
-                    <div className="w-12 h-12 rounded-full border-2 border-white bg-white flex items-center justify-center overflow-hidden shadow-md">
-                      <img
-                        src={benq}
-                        alt="BenQ"
-                        className="w-8 h-8 object-contain"
-                      />
-                    </div>
-                    <div className="w-12 h-12 rounded-full border-2 border-white bg-white flex items-center justify-center overflow-hidden shadow-md">
-                      <img
-                        src={amd}
-                        alt="Nothing"
-                        className="w-8 h-8 object-contain"
-                      />
-                    </div>
+                    {[samsung, benq, amd].map((logo, i) => (
+                      <div
+                        key={i}
+                        className="w-12 h-12 rounded-full border-2 border-white bg-white flex items-center justify-center overflow-hidden shadow-md"
+                      >
+                        <img
+                          src={logo}
+                          alt="client logo"
+                          className="w-8 h-8 object-contain"
+                        />
+                      </div>
+                    ))}
                   </div>
                   <span className="text-sm font-medium text-gray-700">
                     100+ Happy Clients
                   </span>
                 </div>
 
-                {/* Footer text */}
+                {/* Footer Message */}
                 <p className="text-xs text-center text-gray-500 leading-relaxed">
                   Thanks for choosing GOM — we're excited to help you grow!
                 </p>
               </div>
 
-              {/* Decorative Elements */}
+              {/* Decorative Dots */}
               <div className="absolute top-4 left-4 w-2 h-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full opacity-60"></div>
               <div className="absolute bottom-4 right-4 w-2 h-2 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full opacity-60"></div>
             </div>
