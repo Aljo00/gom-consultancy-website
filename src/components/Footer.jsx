@@ -124,7 +124,7 @@ const Footer = () => {
               <span>
                 200 Elm Street, Toronto, Ontario, Canada
                 <br />
-                Postal Code: M5T 1K4
+                Postal Code: M5T 1K4  
               </span>
             </li>
           </ul>
