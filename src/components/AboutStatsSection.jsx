@@ -1,87 +1,122 @@
 import React from "react";
 import { motion } from "framer-motion";
 import CountUp from "react-countup";
-import { MdPerson } from "react-icons/md";
+import { TrendingUp, Users, Clock, Award, Target } from "lucide-react";
 import { useInView } from "react-intersection-observer";
 import { Link } from "react-router-dom";
 
 const stats = [
-  { label: "Projects Completed", value: 541, suffix: "+" },
-  { label: "Years of Experience", value: 8, suffix: "+" },
-  { label: "Client Satisfaction", value: 99, suffix: "%" },
-  { label: "Client Support", value: "24x7", isStatic: true },
-  { label: "Clients", value: 100, suffix: "+" },
+  { 
+    label: "Projects Completed", 
+    value: 541, 
+    suffix: "+", 
+    icon: Target,
+    color: "text-purple-600"
+  },
+  { 
+    label: "Years of Experience", 
+    value: 8, 
+    suffix: "+", 
+    icon: TrendingUp,
+    color: "text-pink-600"
+  },
+  { 
+    label: "Client Satisfaction", 
+    value: 99, 
+    suffix: "%", 
+    icon: Award,
+    color: "text-purple-600"
+  },
+  { 
+    label: "Client Support", 
+    value: "24x7", 
+    isStatic: true, 
+    icon: Clock,
+    color: "text-pink-600"
+  },
+  { 
+    label: "Happy Clients", 
+    value: 100, 
+    suffix: "+", 
+    icon: Users,
+    color: "text-purple-600"
+  },
 ];
 
 const AboutStatsSection = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.3 });
 
   return (
-    <section ref={ref} className="w-full px-4 md:px-20 text-center">
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6 }}
-        className="max-w-6xl mx-auto"
-      >
-        {/* 🔹 Capsule Badge */}
-        <p className="inline-flex items-center gap-2 px-4 py-1 rounded-full font-medium border border-purple-300 mb-6 text-sm bg-purple-100 text-purple-700">
-          <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white p-1 rounded-full">
-            <MdPerson size={14} />
-          </span>
-          ABOUT OUR AGENCY
-        </p>
+    <section ref={ref} className="py-24 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-purple-100 text-purple-700 text-sm font-medium mb-6">
+            <TrendingUp className="w-4 h-4 mr-2" />
+            Our Impact
+          </div>
+          
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Driving Success Through
+            <span className="block bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              Strategic Excellence
+            </span>
+          </h2>
+          
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            We blend creativity with data-driven strategies to deliver measurable results 
+            that transform businesses and accelerate growth.
+          </p>
+        </motion.div>
 
-        {/* 🔹 Main Heading */}
-        <h2 className="text-4xl md:text-5xl font-extrabold leading-tight tracking-tight mb-6">
-          Build{" "}
-          <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
-            Powerful Brand Execution
-          </span>{" "}
-          <br />&{" "}
-          <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
-            Strategy
-          </span>{" "}
-          with us{" "}
-        </h2>
-
-        {/* 🔹 Description */}
-        <p className="text-gray-700 max-w-2xl mx-auto text-lg font-medium mb-12">
-          We blend creativity and strategy to deliver real results. From brand
-          building to customer acquisition, we help you stand out and grow
-          faster.
-        </p>
-
-        {/* 🔹 Stats Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 max-w-5xl mx-auto mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-16">
           {stats.map((stat, i) => (
-            <div key={i} className="flex flex-col items-center">
-              <h3 className="text-4xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
-                {stat.isStatic
-                  ? stat.value
-                  : inView && <CountUp end={stat.value} duration={2} />}
-                {!stat.isStatic && stat.suffix}
-              </h3>
-              <p className="text-lg font-medium text-gray-800 mt-2">
-                {stat.label}
-              </p>
-            </div>
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              className="text-center group"
+            >
+              <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 group-hover:-translate-y-2">
+                <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-r from-purple-100 to-pink-100 mb-4 ${stat.color}`}>
+                  <stat.icon className="w-6 h-6" />
+                </div>
+                
+                <div className="text-3xl font-bold text-gray-900 mb-2">
+                  {stat.isStatic ? (
+                    stat.value
+                  ) : (
+                    inView && <CountUp end={stat.value} duration={2.5} />
+                  )}
+                  {!stat.isStatic && stat.suffix}
+                </div>
+                
+                <p className="text-gray-600 font-medium">{stat.label}</p>
+              </div>
+            </motion.div>
           ))}
         </div>
 
-        {/* 🔹 CTA Button */}
-        <Link
-          to="/about"
-          className="group inline-flex items-center justify-center bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 overflow-hidden hover:px-8"
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="text-center"
         >
-          <span className="transform group-hover:-translate-x-1 transition-all duration-300">
-            Get Started
-          </span>
-          <span className="ml-2 transform group-hover:translate-x-1 transition-all duration-300">
-            →
-          </span>
-        </Link>
-      </motion.div>
+          <Link
+            to="/about"
+            className="inline-flex items-center bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-full font-semibold hover:shadow-xl transition-all duration-300 hover:scale-105"
+          >
+            <span>Learn More About Us</span>
+            <TrendingUp className="w-5 h-5 ml-2" />
+          </Link>
+        </motion.div>
+      </div>
     </section>
   );
 };

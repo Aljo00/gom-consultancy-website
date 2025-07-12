@@ -1,167 +1,130 @@
 import React from "react";
 import {
-  FaBullhorn,
-  FaYoutube,
-  FaRocket,
-  FaChartLine,
-  FaGlobe,
-  FaPalette,
-  FaUserTie,
-  FaQuoteRight,
-  FaVideo,
-  FaUsers,
-  FaBookOpen,
-} from "react-icons/fa";
-import { MdVerifiedUser } from "react-icons/md";
+  Megaphone,
+  Youtube,
+  Rocket,
+  TrendingUp,
+  Globe,
+  Palette,
+  User,
+  MessageSquare,
+  Video,
+  Users,
+  BookOpen,
+} from "lucide-react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { Link } from "react-router-dom";
 
 const services = [
   {
-    icon: <FaBullhorn size={32} className="text-purple-500" />,
+    icon: <Megaphone className="w-8 h-8" />,
     title: "Content & Social Media Marketing",
-    text: "We craft impactful content strategies and manage your social media platforms to grow your audience, increase engagement, and build meaningful connections.",
+    text: "Strategic content creation and social media management that builds communities and drives engagement across all platforms.",
+    gradient: "from-purple-500 to-pink-500"
   },
   {
-    icon: <FaYoutube size={32} className="text-rose-500" />,
+    icon: <Youtube className="w-8 h-8" />,
     title: "YouTube Automation & Management",
-    text: "Let us handle your YouTube channel end-to-end — from content planning and optimization to publishing and analytics — so you can focus on creating while we grow your presence.",
+    text: "Complete YouTube channel management from content planning to analytics, helping you scale your presence effortlessly.",
+    gradient: "from-red-500 to-pink-500"
   },
   {
-    icon: <FaRocket size={32} className="text-pink-600" />,
-    title: "YouTube Growth Plan",
-    text: "Get a custom-built growth strategy tailored to your niche. We analyse your content, audience, and competitors to design a roadmap that boosts views, subscribers, and revenue.",
+    icon: <Rocket className="w-8 h-8" />,
+    title: "YouTube Growth Strategy",
+    text: "Data-driven growth strategies tailored to your niche, maximizing reach, subscribers, and monetization opportunities.",
+    gradient: "from-purple-600 to-blue-500"
   },
   {
-    icon: <FaChartLine size={32} className="text-purple-600" />,
+    icon: <TrendingUp className="w-8 h-8" />,
     title: "Marketing & Sales Generation",
-    text: "We combine performance marketing with strategic sales funnels to convert leads into loyal customers. Our data-driven approach ensures every campaign drives measurable results.",
+    text: "Performance marketing campaigns that convert leads into customers through strategic funnels and targeted advertising.",
+    gradient: "from-green-500 to-blue-500"
   },
   {
-    icon: <FaGlobe size={32} className="text-indigo-500" />,
+    icon: <Globe className="w-8 h-8" />,
     title: "Web Development",
-    text: "We design and build modern, responsive websites that reflect your brand and convert visitors into customers. From landing pages to e‑commerce, we deliver seamless digital experiences.",
+    text: "Modern, responsive websites that tell your brand story and convert visitors into customers with seamless user experiences.",
+    gradient: "from-blue-500 to-purple-500"
   },
   {
-    icon: <FaPalette size={32} className="text-fuchsia-500" />,
-    title: "UI/UX Designing",
-    text: "Great design isn’t just about beauty — it’s about user experience. Our UI/UX experts craft intuitive, user-friendly interfaces that enhance interaction and elevate your digital product.",
-  },
-  {
-    icon: <FaUserTie size={32} className="text-pink-500" />,
-    title: "Personal Branding & Social Media Growth",
-    text: "Grow your personal brand with our custom strategies across platforms. We help you define your voice, position your expertise, and build a strong, consistent online identity.",
-  },
-  {
-    icon: <FaQuoteRight size={32} className="text-rose-400" />,
-    title: "Branding & Storytelling",
-    text: "Creating a strong brand impact with unique storytelling and visual merchandising. From logo to brand tone, we build identities that are authentic, memorable, and emotionally engaging.",
-  },
-  {
-    icon: <FaVideo size={32} className="text-purple-500" />,
-    title: "Video Production & Ads",
-    text: "High-quality video content is essential in today’s digital world. We produce professional videos and ad creatives that captivate, communicate, and convert — from script to screen.",
-  },
-  {
-    icon: <FaUsers size={32} className="text-pink-600" />,
-    title: "Influencer & UGC Marketing",
-    text: "Leverage the power of trusted creators. We connect your brand with influencers and curate authentic user-generated content that drives awareness, trust, and sales.",
-  },
-  {
-    icon: <FaBookOpen size={32} className="text-fuchsia-700" />,
-    title: "Strategic Content Creation",
-    text: "Content without strategy is noise. We plan, create, and distribute content that aligns with your business goals, speaks to your audience, and performs across platforms.",
+    icon: <Palette className="w-8 h-8" />,
+    title: "UI/UX Design",
+    text: "Intuitive design solutions that enhance user experience and create meaningful interactions across all digital touchpoints.",
+    gradient: "from-pink-500 to-purple-500"
   },
 ];
 
 const HomeServices = () => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
 
-  const container = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const cardAnim = {
-    hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0 },
-  };
-
   return (
-    <section className="w-full pt-16 pb-24">
-      <div ref={ref} className="max-w-7xl mx-auto px-4 md:px-8 text-center">
-        {/* Capsule Heading */}
-        <motion.p
-          initial={{ opacity: 0, y: -20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-4 py-1 rounded-full font-medium border border-purple-300 text-sm mb-6 bg-purple-100 text-purple-700"
-        >
-          <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white p-1 rounded-full">
-            <MdVerifiedUser size={14} />
-          </span>
-          OUR SERVICES
-        </motion.p>
-
-        {/* Hero Text */}
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight mb-6"
-        >
-          High-Impact{" "}
-          <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
-            Marketing
-          </span>{" "}
-          Strategies That Drive{" "}
-          <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
-            Growth & Results
-          </span>
-        </motion.h2>
-
-        {/* Subtext */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.7 }}
-          className="text-gray-700 max-w-3xl mx-auto text-lg font-medium mb-12"
-        >
-          Partner with us to craft a successful business model that
-          authentically reflects your unique vision while achieving your desired
-          conversion goals.
-        </motion.p>
-
-        {/* Services Cards */}
+    <section ref={ref} className="py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          variants={container}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
         >
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-purple-100 text-purple-700 text-sm font-medium mb-6">
+            <Rocket className="w-4 h-4 mr-2" />
+            Our Services
+          </div>
+          
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Comprehensive Digital Solutions
+            <span className="block bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              That Drive Results
+            </span>
+          </h2>
+          
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            From strategy to execution, we provide end-to-end digital services that transform 
+            your business and accelerate growth in the digital landscape.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {services.map((service, index) => (
             <motion.div
               key={index}
-              variants={cardAnim}
-              whileHover={{
-                scale: 1.04,
-                boxShadow: "0 10px 24px rgba(168, 85, 247, 0.2)",
-              }}
-              transition={{ duration: 0.3 }}
-              className="bg-white p-6 rounded-2xl shadow-md text-left flex flex-col"
+              initial={{ opacity: 0, y: 30 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="group relative bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border border-gray-100"
             >
-              <div className="mb-4">{service.icon}</div>
-              <h3 className="text-xl font-semibold mb-2 text-purple-800">
+              <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-r ${service.gradient} text-white mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                {service.icon}
+              </div>
+              
+              <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-purple-600 transition-colors duration-300">
                 {service.title}
               </h3>
-              <p className="text-gray-600 flex-grow">{service.text}</p>
+              
+              <p className="text-gray-600 leading-relaxed">
+                {service.text}
+              </p>
+
+              {/* Hover overlay */}
+              <div className={`absolute inset-0 bg-gradient-to-r ${service.gradient} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-300`} />
             </motion.div>
           ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="text-center"
+        >
+          <Link
+            to="/services"
+            className="inline-flex items-center bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-full font-semibold hover:shadow-xl transition-all duration-300 hover:scale-105"
+          >
+            <span>Explore All Services</span>
+            <Rocket className="w-5 h-5 ml-2" />
+          </Link>
         </motion.div>
       </div>
     </section>

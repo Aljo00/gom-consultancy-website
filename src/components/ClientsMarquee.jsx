@@ -1,5 +1,5 @@
 import React from "react";
-import { MdVerifiedUser } from "react-icons/md";
+import { Shield } from "lucide-react";
 
 // Logos
 import oneplus from "../assets/logo/oneplus.png";
@@ -20,98 +20,64 @@ import impex from "../assets/logo/impex.png";
 import luluconnect from "../assets/logo/lulu-connect.png";
 import tvs from "../assets/logo/tvs.png";
 
-// Row 1 Clients
-const clientsRow1 = [
-  oneplus,
-  nothing,
-  tcl,
-  intel,
-  oxygen,
-  west80,
-  amd,
-  benq,
-  samsung,
-];
-
-// Row 2 Clients (New List)
-const clientsRow2 = [
-  vguard,
-  atomberg,
-  toshiba,
-  impex,
-  luluconnect,
-  tvs,
-  reliance,
-  oppo,
+const allClients = [
+  oneplus, nothing, tcl, intel, oxygen, west80, amd, benq, samsung,
+  reliance, oppo, vguard, atomberg, toshiba, impex, luluconnect, tvs
 ];
 
 const ClientsMarquee = () => {
-  const repeatedRow1 = [...clientsRow1, ...clientsRow1];
-  const repeatedRow2 = [...clientsRow2, ...clientsRow2];
-
   return (
-    <section className="py-16 overflow-hidden w-full relative bg-white">
-      <style>
-        {`
-          @keyframes scrollLeft {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-          }
+    <section className="py-20 bg-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12">
+        <div className="inline-flex items-center px-4 py-2 rounded-full bg-purple-100 text-purple-700 text-sm font-medium mb-6">
+          <Shield className="w-4 h-4 mr-2" />
+          Trusted Partners
+        </div>
+        
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Brands That Trust Our
+          <span className="block bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+            Digital Expertise
+          </span>
+        </h2>
+        
+        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          From startups to Fortune 500 companies, we've helped brands across industries 
+          achieve their digital transformation goals.
+        </p>
+      </div>
 
-          @keyframes scrollRight {
-            0% { transform: translateX(-50%); }
-            100% { transform: translateX(0); }
-          }
-
-          .scrolling-row {
-            animation: scrollLeft 30s linear infinite;
-          }
-
-          .scrolling-row-reverse {
-            animation: scrollRight 30s linear infinite;
-          }
-
-          .pause-on-hover:hover {
-            animation-play-state: paused;
-          }
-        `}
-      </style>
-
-      {/* 🔷 Capsule Heading */}
-      <p className="inline-flex items-center gap-2 px-4 py-1 rounded-full font-medium border border-purple-300 mb-6 text-sm bg-purple-100 text-purple-700">
-        <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white p-1 rounded-full">
-          <MdVerifiedUser size={14} />
-        </span>
-        OUR TRUSTED CLIENTS
-      </p>
-
-      {/* 🔁 Row 1 - Left Scroll */}
-      <div className="overflow-hidden w-full">
-        <div className="flex gap-10 w-[200%] scrolling-row pause-on-hover">
-          {repeatedRow1.map((logo, index) => (
-            <img
-              key={`row1-${index}`}
-              src={logo}
-              alt={`Client ${index}`}
-              className="h-12 sm:h-16 object-contain transition duration-300"
-            />
+      {/* Scrolling logos */}
+      <div className="relative">
+        <div className="flex space-x-8 animate-scroll">
+          {[...allClients, ...allClients].map((logo, index) => (
+            <div
+              key={index}
+              className="flex-shrink-0 w-32 h-20 flex items-center justify-center bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group"
+            >
+              <img
+                src={logo}
+                alt={`Client ${index}`}
+                className="max-w-full max-h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+              />
+            </div>
           ))}
         </div>
       </div>
 
-      {/* 🔁 Row 2 - Right Scroll */}
-      <div className="overflow-hidden w-full mt-20">
-        <div className="flex gap-10 w-[200%] scrolling-row-reverse pause-on-hover">
-          {repeatedRow2.map((logo, index) => (
-            <img
-              key={`row2-${index}`}
-              src={logo}
-              alt={`Client ${index}`}
-              className="h-12 sm:h-16 object-contain transition duration-300"
-            />
-          ))}
-        </div>
-      </div>
+      <style jsx>{`
+        @keyframes scroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-scroll {
+          animation: scroll 30s linear infinite;
+          width: calc(200% + 2rem);
+        }
+        .animate-scroll:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
     </section>
   );
 };

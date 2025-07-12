@@ -1,5 +1,5 @@
 import React from "react";
-import { FaGlobe } from "react-icons/fa";
+import { ArrowRight, Play, Star } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import happyClientsImg from "../assets/Happy clients.jpg";
 import AboutStatsSection from "../components/AboutStatsSection";
@@ -9,124 +9,141 @@ import ProjectIdeaCTA from "../components/ProjectIdeaCTA";
 import Faqs from "../components/Faqs";
 import { motion } from "framer-motion";
 
-const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0 },
-};
-
-const fadeIn = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1 },
-};
-
 const Home = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="w-full pt-7 px-4 md:px-8 bg-white text-center overflow-hidden">
-      <div className="px-4 md:px-8 py-24 bg-white text-center">
-        {/* 🔹 Top Capsule Badge */}
-        <motion.p
-          variants={fadeInUp}
-          initial="hidden"
-          animate="visible"
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="inline-flex items-center gap-2 px-4 py-1 rounded-full font-medium border border-purple-300 mb-6 text-sm bg-purple-100 text-purple-700"
-        >
-          <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white p-1 rounded-full">
-            <FaGlobe size={14} />
-          </span>
-          CONTENT & MARKETING AGENCY
-        </motion.p>
+    <div className="min-h-screen bg-white">
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-white to-pink-50" />
+        <div className="absolute top-20 left-10 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob" />
+        <div className="absolute top-40 right-10 w-72 h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000" />
+        <div className="absolute -bottom-8 left-20 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-4000" />
 
-        {/* 🔹 Main Heading */}
-        <motion.h1
-          variants={fadeInUp}
-          initial="hidden"
-          animate="visible"
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight mb-6"
-        >
-          The most{" "}
-          <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
-            Trusted Content
-          </span>
-          <br />
-          <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
-            and Marketing
-          </span>{" "}
-          <span className="text-black">Agency</span>
-        </motion.h1>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="inline-flex items-center px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-purple-200 text-purple-700 text-sm font-medium mb-8"
+          >
+            <Star className="w-4 h-4 mr-2 fill-current" />
+            Trusted by 100+ Global Brands
+          </motion.div>
 
-        {/* 🔹 Description */}
-        <motion.p
-          variants={fadeIn}
-          initial="hidden"
-          animate="visible"
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-gray-700 max-w-2xl mx-auto text-lg font-medium mb-10"
-        >
-          We help businesses fix what's not working from weak branding to poor
-          sales. Our goal is simple: build your brand, attract more customers,
-          and help you make more money.
-        </motion.p>
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-5xl md:text-7xl font-bold leading-tight mb-6"
+          >
+            <span className="text-gray-900">Digital Growth</span>
+            <br />
+            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              Made Simple
+            </span>
+          </motion.h1>
 
-        {/* 🔹 CTA Button with Gradient Hover Effect */}
-        <motion.button
-          onClick={() => navigate("/services")}
-          variants={fadeInUp}
-          initial="hidden"
-          animate="visible"
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="group relative inline-flex items-center justify-center font-semibold px-6 py-3 rounded-full overflow-hidden bg-gradient-to-r from-purple-500 to-pink-500 text-white transition-all duration-300 cursor-pointer"
-        >
-          {/* White background fade on hover */}
-          <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-full" />
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="text-xl text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed"
+          >
+            We transform businesses through strategic content creation, powerful marketing campaigns, 
+            and cutting-edge digital solutions that drive real results.
+          </motion.p>
 
-          {/* Gradient Border on hover */}
-          <span className="absolute inset-0 rounded-full border-2 border-transparent group-hover:border-gradient-to-r group-hover:from-purple-500 group-hover:to-pink-500 transition-all duration-300"></span>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
+          >
+            <button
+              onClick={() => navigate("/services")}
+              className="group bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-full font-semibold flex items-center space-x-2 hover:shadow-xl transition-all duration-300 hover:scale-105"
+            >
+              <span>Start Your Journey</span>
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+            </button>
+            
+            <button className="group flex items-center space-x-2 text-gray-700 hover:text-purple-600 transition-colors duration-300">
+              <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300">
+                <Play className="w-5 h-5 ml-1" />
+              </div>
+              <span className="font-medium">Watch Our Story</span>
+            </button>
+          </motion.div>
 
-          {/* Gradient text on hover */}
-          <span className="relative z-10 bg-none group-hover:bg-gradient-to-r from-purple-500 to-pink-500 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
-            Get Started
-          </span>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 1 }}
+            className="relative max-w-4xl mx-auto"
+          >
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+              <img
+                src={happyClientsImg}
+                alt="Happy Clients"
+                className="w-full h-auto"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+            </div>
+            
+            {/* Floating Cards */}
+            <div className="absolute -top-4 -left-4 bg-white rounded-2xl p-4 shadow-xl hidden md:block">
+              <div className="flex items-center space-x-2">
+                <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
+                <span className="text-sm font-medium text-gray-700">Live Projects: 24</span>
+              </div>
+            </div>
+            
+            <div className="absolute -bottom-4 -right-4 bg-white rounded-2xl p-4 shadow-xl hidden md:block">
+              <div className="text-center">
+                <div className="text-2xl font-bold text-purple-600">99%</div>
+                <div className="text-sm text-gray-600">Client Satisfaction</div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
-          <span className="relative z-10 ml-2 bg-none group-hover:bg-gradient-to-r from-purple-500 to-pink-500 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
-            →
-          </span>
-        </motion.button>
-
-        {/* 🔹 HAPPY CLIENTS IMAGE */}
-        <motion.div
-          variants={fadeInUp}
-          initial="hidden"
-          animate="visible"
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="relative w-full text-center pb-5 pt-7"
-        >
-          <img
-            src={happyClientsImg}
-            alt="Happy Clients"
-            className="mx-auto w-[90%] h-auto rounded-xl shadow-lg object-cover"
-          />
-        </motion.div>
-      </div>
-
-      {/* 🔹 About Stats Section */}
+      {/* Stats Section */}
       <AboutStatsSection />
 
-      {/* 🔹 Clients Logos */}
+      {/* Clients Section */}
       <ClientsMarquee />
 
-      {/* 🔹 Services Section */}
+      {/* Services Section */}
       <HomeServices />
 
-      {/* 🔹 FAQs */}
+      {/* FAQs Section */}
       <Faqs showAll={false} />
 
-      {/* 🔹 CTA Banner */}
+      {/* CTA Section */}
       <ProjectIdeaCTA />
-    </section>
+
+      <style jsx>{`
+        @keyframes blob {
+          0% { transform: translate(0px, 0px) scale(1); }
+          33% { transform: translate(30px, -50px) scale(1.1); }
+          66% { transform: translate(-20px, 20px) scale(0.9); }
+          100% { transform: translate(0px, 0px) scale(1); }
+        }
+        .animate-blob {
+          animation: blob 7s infinite;
+        }
+        .animation-delay-2000 {
+          animation-delay: 2s;
+        }
+        .animation-delay-4000 {
+          animation-delay: 4s;
+        }
+      `}</style>
+    </div>
   );
 };
 

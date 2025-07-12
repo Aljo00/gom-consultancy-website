@@ -1,120 +1,129 @@
 import React from "react";
-import { MdPhone, MdEmail, MdLocationOn } from "react-icons/md";
-import { SiWhatsapp } from "react-icons/si";
+import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import ClientsMarquee from "../components/ClientsMarquee";
 
 const ContactUs = () => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
 
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: "easeOut" },
+  const contactMethods = [
+    {
+      icon: <MessageCircle className="w-8 h-8" />,
+      title: "WhatsApp",
+      description: "Get instant responses to your queries",
+      contact: "+1 437 908 4422",
+      action: "Send Message",
+      link: "https://wa.me/+14379084422?text=Hi! I'm interested in your services. Can we discuss more?",
+      gradient: "from-green-500 to-emerald-500"
     },
-  };
+    {
+      icon: <Mail className="w-8 h-8" />,
+      title: "Email",
+      description: "Send us detailed project requirements",
+      contact: "gomdigitalconsultancy@gmail.com",
+      action: "Send Email",
+      link: "mailto:gomdigitalconsultancy@gmail.com?subject=Collaboration%20Request&body=Hi%20GOM%20Team%2C%20I%20would%20like%20to%20collaborate%20with%20you...",
+      gradient: "from-blue-500 to-purple-500"
+    },
+    {
+      icon: <Phone className="w-8 h-8" />,
+      title: "Phone",
+      description: "Speak directly with our team",
+      contact: "+1 437 908 4422",
+      action: "Call Now",
+      link: "tel:+14379084422",
+      gradient: "from-purple-500 to-pink-500"
+    }
+  ];
 
   return (
-    <motion.section
-      ref={ref}
-      variants={fadeInUp}
-      initial="hidden"
-      animate={inView ? "visible" : "hidden"}
-      className="min-h-screen py-20 pt-35 px-6 md:px-12 bg-gradient-to-br from-purple-50 via-pink-50 to-white"
-    >
-      {/* Capsule Heading */}
-      <div className="text-center mb-6">
-        <span className="inline-flex items-center gap-2 px-4 py-1 rounded-full font-medium border border-purple-300 mb-6 text-sm bg-purple-100 text-purple-700">
-          <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white p-1 rounded-full">
-            <MdPhone size={14} />
-          </span>
-          CONTACT US
-        </span>
-      </div>
-
-      {/* Hero Heading */}
-      <h1 className="text-4xl md:text-5xl font-extrabold text-center mb-4 leading-tight">
-        Let’s{" "}
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">
-          Connect & Collaborate
-        </span>
-      </h1>
-
-      {/* Sub Text */}
-      <p className="text-center text-gray-700 font-medium mb-12 max-w-2xl mx-auto">
-        We have a strong desire to collaborate and welcome esteemed brands and
-        enthusiastic entrepreneurs to join us.
-      </p>
-
-      {/* Contact Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-        {/* Phone / WhatsApp Card */}
-        <motion.div
-          whileHover={{ y: -4, scale: 1.01 }}
-          className="bg-white rounded-2xl shadow-lg p-6 border border-purple-100 text-center"
-        >
-          <div className="flex justify-center items-center text-green-500 mb-4">
-            <MdPhone size={40} />
-          </div>
-          <h3 className="text-xl font-semibold text-gray-800 mb-2">
-            Phone / WhatsApp
-          </h3>
-          <p className="text-gray-700 mb-4 font-medium">+1 437 908 4422</p>
-          <a
-            href="https://wa.me/+14379084422?text=Hi! I'm interested in your services. Can we discuss more?"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe59] text-white font-semibold py-2 px-5 rounded-full transition"
+    <div className="min-h-screen pt-16 bg-white">
+      <section ref={ref} className="py-24 bg-gradient-to-br from-purple-50 to-pink-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
           >
-            <SiWhatsapp size={18} />
-            Send WhatsApp
-          </a>
-        </motion.div>
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-purple-100 text-purple-700 text-sm font-medium mb-6">
+              <Phone className="w-4 h-4 mr-2" />
+              Contact Us
+            </div>
+            
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+              Let's Start Your
+              <span className="block bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                Digital Journey
+              </span>
+            </h1>
+            
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Ready to transform your business? We're here to help you achieve your digital goals. 
+              Choose your preferred way to connect with our team.
+            </p>
+          </motion.div>
 
-        {/* Email Card */}
-        <motion.div
-          whileHover={{ y: -4, scale: 1.01 }}
-          className="bg-white rounded-2xl shadow-lg p-6 border border-purple-100 text-center"
-        >
-          <div className="flex justify-center items-center text-red-500 mb-4">
-            <MdEmail size={40} />
+          {/* Contact Methods */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            {contactMethods.map((method, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 text-center"
+              >
+                <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-r ${method.gradient} text-white mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                  {method.icon}
+                </div>
+                
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                  {method.title}
+                </h3>
+                
+                <p className="text-gray-600 mb-4">
+                  {method.description}
+                </p>
+                
+                <p className="text-gray-800 font-semibold mb-6">
+                  {method.contact}
+                </p>
+                
+                <a
+                  href={method.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`inline-flex items-center justify-center bg-gradient-to-r ${method.gradient} text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105`}
+                >
+                  {method.action}
+                </a>
+              </motion.div>
+            ))}
           </div>
-          <h3 className="text-xl font-semibold text-gray-800 mb-2">Email</h3>
-          <p className="text-gray-700 mb-4 font-medium">
-            gomdigitalconsultancy@gmail.com
-          </p>
-          <a
-            href="mailto:gomdigitalconsultancy@gmail.com?subject=Collaboration%20Request&body=Hi%20GOM%20Team%2C%20I%20would%20like%20to%20collaborate%20with%20you..."
-            target="_blank"
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-red-500 to-pink-500 hover:from-pink-500 hover:to-red-500 text-white font-semibold py-2 px-5 rounded-full transition"
+
+          {/* Office Location */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="bg-white rounded-3xl p-8 shadow-sm text-center"
           >
-            Send Email
-          </a>
-        </motion.div>
-
-        {/* Address Card */}
-        <motion.div
-          whileHover={{ y: -4, scale: 1.01 }}
-          className="bg-white rounded-2xl shadow-lg p-6 border border-purple-100 text-center"
-        >
-          <div className="flex justify-center items-center text-purple-600 mb-4">
-            <MdLocationOn size={40} />
-          </div>
-          <h3 className="text-xl font-semibold text-gray-800 mb-2">
-            Our Office
-          </h3>
-          <p className="text-gray-700 font-medium">
-            200 Elm Street, <br />
-            Toronto, Ontario, Canada <br />
-            Postal Code: M5T 1K4
-          </p>
-        </motion.div>
-      </div>
-
-    </motion.section>
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-r from-purple-500 to-pink-500 text-white mb-6">
+              <MapPin className="w-8 h-8" />
+            </div>
+            
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Office</h3>
+            
+            <div className="text-gray-600 space-y-2">
+              <p className="text-lg">200 Elm Street</p>
+              <p className="text-lg">Toronto, Ontario, Canada</p>
+              <p className="text-lg">Postal Code: M5T 1K4</p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+    </div>
   );
 };
 

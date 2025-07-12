@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import logo from "../assets/Gom Digital consultancy.png";
 
 const servicesList = [
   "Content & Social Media Marketing",
-  "YouTube Automation & Management",
+  "YouTube Automation & Management", 
   "YouTube Growth Plan",
   "Marketing & Sales Generation",
   "Web Development",
@@ -16,13 +16,6 @@ const servicesList = [
   "Video Production & Ads",
   "Influencer & UGC Marketing",
   "Strategic Content Creation",
-  "Personal Portfolio",
-  "Landing Pages",
-  "CMS Integration",
-  "Full Website Development",
-  "Hosting & Deployment",
-  "SEO-Friendly Development",
-  "Custom Website",
 ];
 
 const Navbar = () => {
@@ -31,154 +24,121 @@ const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 10);
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinkStyle =
-    "relative font-semibold px-2 py-1 text-purple-700 transition-all duration-300 hover:text-purple-900 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[3px] after:bg-gradient-to-r after:from-purple-500 after:to-pink-500 after:rounded-full after:w-0 hover:after:w-full after:transition-all after:duration-300";
+  const navLinkStyle = "relative font-medium text-gray-700 hover:text-purple-600 transition-colors duration-300 py-2";
 
   return (
     <>
       <motion.nav
-        initial={{ y: -60, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        className={`fixed z-50 left-1/2 transform -translate-x-1/2 ${
-          isScrolled ? "top-4 w-[92%] md:w-[85%]" : "top-0 w-full"
-        } transition-all duration-300`}
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          isScrolled 
+            ? "bg-white/80 backdrop-blur-xl border-b border-gray-100 shadow-sm" 
+            : "bg-transparent"
+        }`}
       >
-        <div
-          className={`transition-all duration-300 ${
-            isScrolled
-              ? "rounded-2xl border border-purple-200 bg-white/30 backdrop-blur-md shadow-xl px-6 py-3"
-              : "px-4 md:px-6 py-4 border-b-4 border-purple-500/50"
-          }`}
-        >
-          <div className="flex items-center justify-between">
-            <Link to="/" className="flex items-center space-x-3">
-              <img src={logo} alt="GOM Logo" className="w-9 h-9 rounded-full" />
-              <span className="text-xl md:text-2xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
-                GOM DIGITAL CONSULTANCY
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <Link to="/" className="flex items-center space-x-3 group">
+              <div className="relative">
+                <img 
+                  src={logo} 
+                  alt="GOM Logo" 
+                  className="w-8 h-8 rounded-full transition-transform duration-300 group-hover:scale-110" 
+                />
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
+              </div>
+              <span className="text-lg font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                GOM DIGITAL
               </span>
             </Link>
 
-            {/* Desktop Nav */}
-            <div className="hidden md:flex space-x-6 items-center relative">
-              <Link to="/" className={navLinkStyle}>
-                Home
-              </Link>
-              <Link to="/about" className={navLinkStyle}>
-                About
-              </Link>
-              <span
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-8">
+              <Link to="/" className={navLinkStyle}>Home</Link>
+              <Link to="/about" className={navLinkStyle}>About</Link>
+              
+              <div 
+                className="relative"
                 onMouseEnter={() => setShowDropdown(true)}
                 onMouseLeave={() => setShowDropdown(false)}
-                className={navLinkStyle + " cursor-pointer"}
               >
-                Services
-              </span>
-              <Link to="/faqs" className={navLinkStyle}>
-                FAQs
-              </Link>
-              <Link to="/contact-us" className={navLinkStyle}>
-                Contact Us
+                <button className={`${navLinkStyle} flex items-center space-x-1`}>
+                  <span>Services</span>
+                  <ChevronDown size={16} className={`transition-transform duration-200 ${showDropdown ? 'rotate-180' : ''}`} />
+                </button>
+                
+                <AnimatePresence>
+                  {showDropdown && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute top-full left-0 mt-2 w-80 bg-white rounded-2xl shadow-xl border border-gray-100 p-4 z-50"
+                    >
+                      <div className="grid gap-2">
+                        {servicesList.map((service, idx) => (
+                          <Link
+                            key={idx}
+                            to="/services"
+                            className="block px-3 py-2 text-sm text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors duration-200"
+                          >
+                            {service}
+                          </Link>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+              
+              <Link to="/faqs" className={navLinkStyle}>FAQs</Link>
+              <Link 
+                to="/contact-us" 
+                className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 py-2 rounded-full font-medium hover:shadow-lg transition-all duration-300 hover:scale-105"
+              >
+                Contact
               </Link>
             </div>
 
-            {/* Mobile Nav Icon */}
-            <div className="md:hidden">
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="text-purple-700"
-              >
-                {isOpen ? <X size={28} /> : <Menu size={28} />}
-              </button>
-            </div>
+            {/* Mobile menu button */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
 
-          {/* Mobile Menu */}
+          {/* Mobile Navigation */}
           <AnimatePresence>
             {isOpen && (
               <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: "auto", opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
                 transition={{ duration: 0.3 }}
-                className="md:hidden mt-3 flex flex-col space-y-2 bg-white rounded-lg shadow-lg p-4"
+                className="md:hidden bg-white border-t border-gray-100"
               >
-                <Link
-                  to="/"
-                  className={navLinkStyle}
-                  onClick={() => setIsOpen(false)}
-                >
-                  Home
-                </Link>
-                <Link
-                  to="/about"
-                  className={navLinkStyle}
-                  onClick={() => setIsOpen(false)}
-                >
-                  About
-                </Link>
-                <Link
-                  to="/services"
-                  className={navLinkStyle}
-                  onClick={() => setIsOpen(false)}
-                >
-                  Services
-                </Link>
-                <Link
-                  to="/faqs"
-                  className={navLinkStyle}
-                  onClick={() => setIsOpen(false)}
-                >
-                  FAQs
-                </Link>
-                <Link
-                  to="/contact-us"
-                  className={navLinkStyle}
-                  onClick={() => setIsOpen(false)}
-                >
-                  Contact Us
-                </Link>
+                <div className="px-4 py-4 space-y-2">
+                  <Link to="/" className="block py-2 text-gray-700 hover:text-purple-600" onClick={() => setIsOpen(false)}>Home</Link>
+                  <Link to="/about" className="block py-2 text-gray-700 hover:text-purple-600" onClick={() => setIsOpen(false)}>About</Link>
+                  <Link to="/services" className="block py-2 text-gray-700 hover:text-purple-600" onClick={() => setIsOpen(false)}>Services</Link>
+                  <Link to="/faqs" className="block py-2 text-gray-700 hover:text-purple-600" onClick={() => setIsOpen(false)}>FAQs</Link>
+                  <Link to="/contact-us" className="block py-2 text-gray-700 hover:text-purple-600" onClick={() => setIsOpen(false)}>Contact</Link>
+                </div>
               </motion.div>
             )}
           </AnimatePresence>
         </div>
       </motion.nav>
-
-      {/* Dropdown Services Menu */}
-      <AnimatePresence>
-        {showDropdown && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            onMouseEnter={() => setShowDropdown(true)}
-            onMouseLeave={() => setShowDropdown(false)}
-            className="fixed z-40 top-[100px] left-0 w-full h-[70vh] overflow-auto bg-white border-t border-purple-100 px-6 py-6"
-          >
-            <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-              {servicesList.map((title, idx) => (
-                <div
-                  key={idx}
-                  className="group text-purple-700 font-medium text-sm sm:text-base relative cursor-pointer px-2 py-2"
-                >
-                  <span className="relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-gradient-to-r after:from-purple-500 after:to-pink-500 after:rounded-full after:w-0 group-hover:after:w-full after:transition-all after:duration-300">
-                    {title}
-                  </span>
-                  <span className="absolute right-2 text-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                    →
-                  </span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </>
   );
 };
