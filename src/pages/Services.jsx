@@ -30,7 +30,7 @@ const services = [
   {
     icon: <FaYoutube size={32} className="text-rose-500" />,
     title: "YouTube Automation & Management",
-    text: "We manage your channel from A to Z — content calendars, SEO, thumbnails, publishing, and performance analytics — so you focus on creating while we focus on scaling.",
+    text: "We manage your channel from A to Z content calendars, SEO, thumbnails, publishing, and performance analytics so you focus on creating while we focus on scaling.",
   },
   {
     icon: <FaRocket size={32} className="text-fuchsia-500" />,
@@ -50,12 +50,12 @@ const services = [
   {
     icon: <FaPalette size={32} className="text-violet-500" />,
     title: "UI/UX Designing",
-    text: "We design with purpose. Our interfaces don’t just look good — they feel intuitive, reduce friction, and enhance user engagement across every device.",
+    text: "We design with purpose. Our interfaces don’t just look good they feel intuitive, reduce friction, and enhance user engagement across every device.",
   },
   {
     icon: <FaUserTie size={32} className="text-pink-500" />,
     title: "Personal Branding & Social Media Growth",
-    text: "We help you build a brand that’s not just followed — but respected. Define your voice, establish authority, and scale your influence across platforms.",
+    text: "We help you build a brand that’s not just followed but respected. Define your voice, establish authority, and scale your influence across platforms.",
   },
   {
     icon: <FaQuoteRight size={32} className="text-rose-400" />,

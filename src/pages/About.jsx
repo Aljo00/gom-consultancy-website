@@ -74,23 +74,23 @@ const About = () => {
           <p>
             I began with chaos, confusion, and a relentless drive to figure
             things out. My first YouTube channel in India had no team, no tools,
-            and no stable internet — just deep curiosity and hunger to grow.
+            and no stable internet just deep curiosity and hunger to grow.
           </p>
           <p>
-            Failures were constant — videos flopped, clients backed out, and I
+            Failures were constant videos flopped, clients backed out, and I
             spent countless hours just trying to move forward. But those
-            struggles taught me how the digital world truly works — not in
+            struggles taught me how the digital world truly works not in
             theory, but in the trenches.
           </p>
           <p>
             Eventually, I cracked the code. GOM Digital Consultancy wasn’t just
-            born from success — it was built from resilience. Our mission: to
+            born from success it was built from resilience. Our mission: to
             help creators, solopreneurs, and small brands grow smart, human, and
             bold in the digital space.
           </p>
           <p>
-            We've supported 100+ creators and brands — scaling YouTube channels,
-            launching businesses, and driving growth — often without paid ads.
+            We've supported 100+ creators and brands scaling YouTube channels,
+            launching businesses, and driving growth often without paid ads.
           </p>
           <p>
             Today, I lead a global team from Canada with the same values I
@@ -98,7 +98,7 @@ const About = () => {
             creativity, and care.
           </p>
           <p className="text-purple-700 font-semibold">
-            This isn’t just digital growth — it’s about building something real.
+            This isn’t just digital growth it’s about building something real.
             And we’re just getting started.
           </p>
         </div>
