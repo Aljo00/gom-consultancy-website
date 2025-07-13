@@ -22,8 +22,96 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 const services = [
-  // same array as you already have
-  // keeping it unchanged for brevity
+  {
+    icon: <FaBullhorn size={32} className="text-purple-500" />,
+    title: "Content & Social Media Marketing",
+    text: "We create powerful content strategies that drive results. From engaging posts to platform-specific campaigns, we help you build a loyal community and impactful digital voice.",
+  },
+  {
+    icon: <FaYoutube size={32} className="text-rose-500" />,
+    title: "YouTube Automation & Management",
+    text: "We manage your channel from A to Z — content calendars, SEO, thumbnails, publishing, and performance analytics — so you focus on creating while we focus on scaling.",
+  },
+  {
+    icon: <FaRocket size={32} className="text-fuchsia-500" />,
+    title: "YouTube Growth Plan",
+    text: "We deep dive into your analytics, competitors, and content to craft a custom growth blueprint that maximizes reach, subscribers, and monetization opportunities.",
+  },
+  {
+    icon: <FaChartLine size={32} className="text-purple-600" />,
+    title: "Marketing & Sales Generation",
+    text: "We connect marketing with performance. Our funnel strategies turn cold leads into loyal customers using targeted ads, nurturing systems, and smart conversions.",
+  },
+  {
+    icon: <FaGlobe size={32} className="text-indigo-500" />,
+    title: "Web Development",
+    text: "From idea to execution, we develop fast, elegant, responsive websites that tell your brand story and guide your visitors into action with seamless experiences.",
+  },
+  {
+    icon: <FaPalette size={32} className="text-violet-500" />,
+    title: "UI/UX Designing",
+    text: "We design with purpose. Our interfaces don’t just look good — they feel intuitive, reduce friction, and enhance user engagement across every device.",
+  },
+  {
+    icon: <FaUserTie size={32} className="text-pink-500" />,
+    title: "Personal Branding & Social Media Growth",
+    text: "We help you build a brand that’s not just followed — but respected. Define your voice, establish authority, and scale your influence across platforms.",
+  },
+  {
+    icon: <FaQuoteRight size={32} className="text-rose-400" />,
+    title: "Branding & Storytelling",
+    text: "People remember stories, not products. We develop brand voices, visual systems, and narratives that emotionally connect and stand out in a crowded market.",
+  },
+  {
+    icon: <FaVideo size={32} className="text-purple-500" />,
+    title: "Video Production & Ads",
+    text: "Our creative team crafts cinematic video content and high-converting ad creatives that tell your story, drive clicks, and deliver real impact.",
+  },
+  {
+    icon: <FaUsers size={32} className="text-pink-600" />,
+    title: "Influencer & UGC Marketing",
+    text: "We connect you with creators who align with your brand. From influencer partnerships to UGC campaigns, we spark genuine buzz and consumer trust.",
+  },
+  {
+    icon: <FaBookOpen size={32} className="text-fuchsia-700" />,
+    title: "Strategic Content Creation",
+    text: "We merge creativity with strategy to craft content that educates, entertains, and converts. Every word, image, or video is backed by intent and insight.",
+  },
+  {
+    icon: <FaUserCircle size={32} className="text-fuchsia-700" />,
+    title: "Personal Portfolio",
+    text: "Tailored portfolio websites that showcase your skills, projects, experience, and online presence in a clean, modern layout to help you stand out.",
+  },
+  {
+    icon: <FaRocket size={32} className="text-fuchsia-700" />,
+    title: "Landing pages for business",
+    text: "Conversion-focused landing pages designed to capture leads, promote services or campaigns, and drive traffic effectively with clear CTAs.",
+  },
+  {
+    icon: <FaWpforms size={32} className="text-fuchsia-700" />,
+    title: "CMS Integration",
+    text: "Integration of headless CMS platforms like Sanity or WordPress to make content management effortless and dynamic for your team.",
+  },
+  {
+    icon: <FaGlobe size={32} className="text-fuchsia-700" />,
+    title: "Full website development",
+    text: "End-to-end development of fully responsive, fast-loading websites using modern tech stacks like React, Tailwind CSS, and backend integration.",
+  },
+  {
+    icon: <FaServer size={32} className="text-fuchsia-700" />,
+    title: "Hosting and Deployment",
+    text: "Secure hosting and seamless deployment setup with platforms like Vercel, Netlify, or custom servers—plus after-deployment support.",
+  },
+  {
+    icon: <FaSearch size={32} className="text-fuchsia-700" />,
+    title: "SEO-Friendly Development",
+    text: "Implementation of SEO best practices including structured data, fast performance, semantic HTML, and responsive mobile-first design.",
+  },
+  {
+    icon: <FaTools size={32} className="text-fuchsia-700" />,
+    title: "Custom Website",
+    text: "We build highly customized websites tailored to your unique goals—featuring interactive elements, animations, integrations, and more.",
+  },
 ];
 
 const Services = () => {
