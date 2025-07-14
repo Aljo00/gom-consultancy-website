@@ -18,57 +18,68 @@ import { useInView } from "react-intersection-observer";
 
 const services = [
   {
-    icon: <FaBullhorn size={32} className="text-purple-500" />,
+    icon: <FaBullhorn size={20} />,
+    gradient: "from-pink-500 to-purple-500",
     title: "Content & Social Media Marketing",
     text: "We craft impactful content strategies and manage your social media platforms to grow your audience, increase engagement, and build meaningful connections.",
   },
   {
-    icon: <FaYoutube size={32} className="text-rose-500" />,
+    icon: <FaYoutube size={20} />,
+    gradient: "from-rose-500 to-rose-400",
     title: "YouTube Automation & Management",
     text: "Let us handle your YouTube channel end-to-end — from content planning and optimization to publishing and analytics — so you can focus on creating while we grow your presence.",
   },
   {
-    icon: <FaRocket size={32} className="text-pink-600" />,
+    icon: <FaRocket size={20} />,
+    gradient: "from-fuchsia-500 to-pink-500",
     title: "YouTube Growth Plan",
     text: "Get a custom-built growth strategy tailored to your niche. We analyse your content, audience, and competitors to design a roadmap that boosts views, subscribers, and revenue.",
   },
   {
-    icon: <FaChartLine size={32} className="text-purple-600" />,
+    icon: <FaChartLine size={20} />,
+    gradient: "from-purple-600 to-violet-500",
     title: "Marketing & Sales Generation",
     text: "We combine performance marketing with strategic sales funnels to convert leads into loyal customers. Our data-driven approach ensures every campaign drives measurable results.",
   },
   {
-    icon: <FaGlobe size={32} className="text-indigo-500" />,
+    icon: <FaGlobe size={20} />,
+    gradient: "from-indigo-500 to-purple-500",
     title: "Web Development",
     text: "We design and build modern, responsive websites that reflect your brand and convert visitors into customers. From landing pages to e‑commerce, we deliver seamless digital experiences.",
   },
   {
-    icon: <FaPalette size={32} className="text-fuchsia-500" />,
+    icon: <FaPalette size={20} />,
+    gradient: "from-fuchsia-500 to-pink-500",
     title: "UI/UX Designing",
     text: "Great design isn’t just about beauty — it’s about user experience. Our UI/UX experts craft intuitive, user-friendly interfaces that enhance interaction and elevate your digital product.",
   },
   {
-    icon: <FaUserTie size={32} className="text-pink-500" />,
+    icon: <FaUserTie size={20} />,
+    gradient: "from-pink-500 to-pink-400",
     title: "Personal Branding & Social Media Growth",
     text: "Grow your personal brand with our custom strategies across platforms. We help you define your voice, position your expertise, and build a strong, consistent online identity.",
   },
   {
-    icon: <FaQuoteRight size={32} className="text-rose-400" />,
+    icon: <FaQuoteRight size={20} />,
+    gradient: "from-rose-400 to-pink-400",
     title: "Branding & Storytelling",
     text: "Creating a strong brand impact with unique storytelling and visual merchandising. From logo to brand tone, we build identities that are authentic, memorable, and emotionally engaging.",
   },
   {
-    icon: <FaVideo size={32} className="text-purple-500" />,
+    icon: <FaVideo size={20} />,
+    gradient: "from-purple-500 to-violet-500",
     title: "Video Production & Ads",
     text: "High-quality video content is essential in today’s digital world. We produce professional videos and ad creatives that captivate, communicate, and convert — from script to screen.",
   },
   {
-    icon: <FaUsers size={32} className="text-pink-600" />,
+    icon: <FaUsers size={20} />,
+    gradient: "from-pink-500 to-fuchsia-600",
     title: "Influencer & UGC Marketing",
     text: "Leverage the power of trusted creators. We connect your brand with influencers and curate authentic user-generated content that drives awareness, trust, and sales.",
   },
   {
-    icon: <FaBookOpen size={32} className="text-fuchsia-700" />,
+    icon: <FaBookOpen size={20} />,
+    gradient: "from-fuchsia-700 to-pink-600",
     title: "Strategic Content Creation",
     text: "Content without strategy is noise. We plan, create, and distribute content that aligns with your business goals, speaks to your audience, and performs across platforms.",
   },
@@ -148,18 +159,51 @@ const HomeServices = () => {
             <motion.div
               key={index}
               variants={cardAnim}
-              whileHover={{
-                scale: 1.04,
-                boxShadow: "0 10px 24px rgba(168, 85, 247, 0.2)",
-              }}
-              transition={{ duration: 0.3 }}
-              className="bg-white p-6 rounded-2xl shadow-md text-left flex flex-col"
+              whileHover="hover"
+              className="group relative rounded-3xl p-6 bg-white shadow-md border border-gray-200 ring-1 ring-gray-100 hover:ring-2 hover:ring-purple-300 transition-all duration-300"
             >
-              <div className="mb-4">{service.icon}</div>
-              <h3 className="text-xl font-semibold mb-2 text-purple-800">
+              {/* Icon Box */}
+              <motion.div
+                variants={{
+                  hover: {
+                    scale: 1.2,
+                    rotate: 6,
+                    boxShadow: "0px 10px 25px rgba(236, 72, 153, 0.35)",
+                  },
+                }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className={`w-14 h-14 mb-5 flex items-center justify-center rounded-xl bg-gradient-to-br ${service.gradient} text-white shadow-md`}
+              >
+                {React.cloneElement(service.icon, {
+                  className: "text-white",
+                  size: 28,
+                })}
+              </motion.div>
+
+              {/* Title */}
+              <motion.h3
+                variants={{
+                  hover: {
+                    y: -4,
+                    color: "#a855f7",
+                  },
+                }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="text-lg font-bold text-gray-900 mb-2"
+              >
                 {service.title}
-              </h3>
-              <p className="text-gray-600 flex-grow">{service.text}</p>
+              </motion.h3>
+
+              {/* Description */}
+              <motion.p
+                variants={{
+                  hover: { opacity: 0.95, y: -2 },
+                }}
+                transition={{ duration: 0.3 }}
+                className="text-sm text-gray-600 leading-relaxed"
+              >
+                {service.text}
+              </motion.p>
             </motion.div>
           ))}
         </motion.div>

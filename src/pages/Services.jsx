@@ -23,149 +23,210 @@ import { useInView } from "react-intersection-observer";
 
 const services = [
   {
-    icon: <FaBullhorn size={32} className="text-purple-500" />,
+    icon: <FaBullhorn />,
     title: "Content & Social Media Marketing",
-    text: "We create powerful content strategies that drive results. From engaging posts to platform-specific campaigns, we help you build a loyal community and impactful digital voice.",
+    text: "We craft impactful content strategies and manage your social media platforms to grow your audience, increase engagement, and build meaningful connections.",
+    gradient: "from-purple-500 to-pink-500",
   },
   {
-    icon: <FaYoutube size={32} className="text-rose-500" />,
+    icon: <FaYoutube />,
     title: "YouTube Automation & Management",
-    text: "We manage your channel from A to Z — content calendars, SEO, thumbnails, publishing, and performance analytics — so you focus on creating while we focus on scaling.",
+    text: "Let us handle your YouTube channel end-to-end. From content planning and optimization to publishing and analytics, so you can focus on creating while we grow your presence.",
+    gradient: "from-rose-500 to-red-400",
   },
   {
-    icon: <FaRocket size={32} className="text-fuchsia-500" />,
+    icon: <FaRocket />,
     title: "YouTube Growth Plan",
-    text: "We deep dive into your analytics, competitors, and content to craft a custom growth blueprint that maximizes reach, subscribers, and monetization opportunities.",
+    text: "Get a custom-built growth strategy tailored to your niche. We analyse your content, audience, and competitors to design a roadmap that boosts views, subscribers, and revenue.",
+    gradient: "from-fuchsia-500 to-pink-400",
   },
   {
-    icon: <FaChartLine size={32} className="text-purple-600" />,
+    icon: <FaChartLine />,
     title: "Marketing & Sales Generation",
-    text: "We connect marketing with performance. Our funnel strategies turn cold leads into loyal customers using targeted ads, nurturing systems, and smart conversions.",
+    text: "We combine performance marketing with strategic sales funnels to convert leads into loyal customers. Our data-driven approach ensures every campaign drives measurable results.",
+    gradient: "from-violet-600 to-purple-400",
   },
   {
-    icon: <FaGlobe size={32} className="text-indigo-500" />,
+    icon: <FaGlobe />,
     title: "Web Development",
-    text: "From idea to execution, we develop fast, elegant, responsive websites that tell your brand story and guide your visitors into action with seamless experiences.",
+    text: "We design and build modern, responsive websites that reflect your brand and convert visitors into customers. From landing pages to e‑commerce, we deliver seamless digital experiences.",
+    gradient: "from-indigo-500 to-blue-400",
   },
   {
-    icon: <FaPalette size={32} className="text-violet-500" />,
+    icon: <FaPalette />,
     title: "UI/UX Designing",
-    text: "We design with purpose. Our interfaces don’t just look good — they feel intuitive, reduce friction, and enhance user engagement across every device.",
+    text: "Great design isn’t just about beauty — it’s about user experience. Our UI/UX experts craft intuitive, user-friendly interfaces that enhance interaction and elevate your digital product",
+    gradient: "from-violet-500 to-purple-300",
   },
   {
-    icon: <FaUserTie size={32} className="text-pink-500" />,
+    icon: <FaUserTie />,
     title: "Personal Branding & Social Media Growth",
-    text: "We help you build a brand that’s not just followed — but respected. Define your voice, establish authority, and scale your influence across platforms.",
+    text: "Grow your personal brand with our custom strategies across platforms. We help you define your voice, position your expertise, and build a strong, consistent online identity.",
+    gradient: "from-pink-500 to-rose-400",
   },
   {
-    icon: <FaQuoteRight size={32} className="text-rose-400" />,
+    icon: <FaQuoteRight />,
     title: "Branding & Storytelling",
-    text: "People remember stories, not products. We develop brand voices, visual systems, and narratives that emotionally connect and stand out in a crowded market.",
+    text: "We help brands find their voice and tell their story in a way that connects. From logo to brand tone, we build identities that are authentic, memorable, and emotionally engaging.",
+    gradient: "from-rose-400 to-pink-400",
   },
   {
-    icon: <FaVideo size={32} className="text-purple-500" />,
+    icon: <FaVideo />,
     title: "Video Production & Ads",
-    text: "Our creative team crafts cinematic video content and high-converting ad creatives that tell your story, drive clicks, and deliver real impact.",
+    text: " High-quality video content is essential in today’s digital world. We produce professional videos and ad creatives that captivate, communicate, and convert, from script to screen.",
+    gradient: "from-purple-500 to-violet-400",
   },
   {
-    icon: <FaUsers size={32} className="text-pink-600" />,
+    icon: <FaUsers />,
     title: "Influencer & UGC Marketing",
-    text: "We connect you with creators who align with your brand. From influencer partnerships to UGC campaigns, we spark genuine buzz and consumer trust.",
+    text: "Leverage the power of trusted creators. We connect your brand with influencers and curate authentic user-generated content that drives awareness, trust, and sales.",
+    gradient: "from-pink-600 to-rose-500",
   },
   {
-    icon: <FaBookOpen size={32} className="text-fuchsia-700" />,
+    icon: <FaBookOpen />,
     title: "Strategic Content Creation",
-    text: "We merge creativity with strategy to craft content that educates, entertains, and converts. Every word, image, or video is backed by intent and insight.",
+    text: "Content without strategy is noise. We plan, create, and distribute content that aligns with your business goals, speaks to your audience, and performs across platforms.",
+    gradient: "from-fuchsia-700 to-purple-500",
   },
   {
-    icon: <FaUserCircle size={32} className="text-fuchsia-700" />,
+    icon: <FaUserCircle />,
     title: "Personal Portfolio",
-    text: "Tailored portfolio websites that showcase your skills, projects, experience, and online presence in a clean, modern layout to help you stand out.",
+    text: "Professional, modern, and responsive websites tailored for individuals to showcase their personal brand, skills, achievements, and projects. Ideal for freelancers, creatives, developers, and professionals looking to impress clients, recruiters, or collaborators online.",
+    gradient: "from-pink-700 to-purple-600",
   },
   {
-    icon: <FaRocket size={32} className="text-fuchsia-700" />,
+    icon: <FaRocket />,
     title: "Landing pages for business",
-    text: "Conversion-focused landing pages designed to capture leads, promote services or campaigns, and drive traffic effectively with clear CTAs.",
+    text: "Strategically designed, high-converting pages tailored to highlight your services, special offers, or marketing campaigns — built to drive action, capture leads, and turn visitors into customers. Ideal for ads, product launches, service promotions, or limited-time deals.",
+    gradient: "from-purple-600 to-fuchsia-500",
   },
   {
-    icon: <FaWpforms size={32} className="text-fuchsia-700" />,
-    title: "CMS Integration",
-    text: "Integration of headless CMS platforms like Sanity or WordPress to make content management effortless and dynamic for your team.",
-  },
-  {
-    icon: <FaGlobe size={32} className="text-fuchsia-700" />,
+    icon: <FaGlobe />,
     title: "Full website development",
-    text: "End-to-end development of fully responsive, fast-loading websites using modern tech stacks like React, Tailwind CSS, and backend integration.",
+    text: "End-to-end website development using modern technologies to deliver fast, responsive, and scalable websites — tailored to your brand, goals, and audience. From UI design to deployment, we build clean, secure, and high-performing web experiences.",
+    gradient: "from-purple-700 to-indigo-500",
   },
   {
-    icon: <FaServer size={32} className="text-fuchsia-700" />,
+    icon: <FaServer />,
     title: "Hosting and Deployment",
-    text: "Secure hosting and seamless deployment setup with platforms like Vercel, Netlify, or custom servers—plus after-deployment support.",
-  },
-  {
-    icon: <FaSearch size={32} className="text-fuchsia-700" />,
-    title: "SEO-Friendly Development",
-    text: "Implementation of SEO best practices including structured data, fast performance, semantic HTML, and responsive mobile-first design.",
-  },
-  {
-    icon: <FaTools size={32} className="text-fuchsia-700" />,
-    title: "Custom Website",
-    text: "We build highly customized websites tailored to your unique goals—featuring interactive elements, animations, integrations, and more.",
+    text: "We handle complete hosting and deployment for your website — ensuring it’s secure, live, and optimized for performance. From server setup to domain configuration and ongoing support, we take care of everything so you don’t have to.",
+    gradient: "from-violet-600 to-fuchsia-500",
   },
 ];
 
 const Services = () => {
-  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
+
+  const container = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const cardAnim = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1, y: 0 },
+  };
 
   return (
-    <motion.section
-      ref={ref}
-      initial={{ opacity: 0, y: 60 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.7, ease: "easeOut" }}
-      className="w-full px-4 sm:px-6 md:px-12 py-20 bg-gradient-to-br from-[#f7f0ff] to-[#f2e8ff]"
-    >
-      {/* Capsule Heading */}
-      <div className="text-center mb-4 sm:mb-6">
-        <span className="inline-flex items-center gap-2 bg-purple-100 text-purple-700 px-4 py-1 rounded-full text-sm font-semibold border border-purple-300">
-          <MdDesignServices size={18} className="text-purple-600" />
+    <section className="w-full pt-25 pb-24">
+      <div ref={ref} className="max-w-7xl mx-auto px-4 md:px-8 text-center">
+        <motion.p
+          initial={{ opacity: 0, y: -20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5 }}
+          className="inline-flex items-center gap-2 px-4 py-1 rounded-full font-medium border border-purple-300 text-sm mb-6 bg-purple-100 text-purple-700"
+        >
+          <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white p-1 rounded-full">
+            <MdDesignServices size={14} />
+          </span>
           OUR SERVICES
-        </span>
+        </motion.p>
+
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight mb-6"
+        >
+          Unlock Digital Growth with{" "}
+          <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
+            Impactful
+          </span>{" "}
+          Services
+        </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.7 }}
+          className="text-gray-700 max-w-3xl mx-auto text-lg font-medium mb-12"
+        >
+          Discover how our tailored digital solutions can transform your brand's
+          presence, performance, and profit.
+        </motion.p>
+
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"
+        >
+          {services.map((service, index) => (
+            <motion.div
+              key={index}
+              variants={cardAnim}
+              whileHover="hover"
+              className="group relative rounded-3xl p-6 bg-white shadow-md border border-gray-200 ring-1 ring-gray-100 hover:ring-2 hover:ring-purple-300 transition-all duration-300"
+            >
+              <motion.div
+                variants={{
+                  hover: {
+                    scale: 1.2,
+                    rotate: 6,
+                    boxShadow: "0px 10px 25px rgba(236, 72, 153, 0.35)",
+                  },
+                }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className={`w-14 h-14 mb-5 flex items-center justify-center rounded-xl bg-gradient-to-br ${service.gradient} text-white shadow-md`}
+              >
+                {React.cloneElement(service.icon, {
+                  className: "text-white",
+                  size: 28,
+                })}
+              </motion.div>
+
+              <motion.h3
+                variants={{
+                  hover: {
+                    y: -4,
+                    color: "#a855f7",
+                  },
+                }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="text-lg font-bold text-gray-900 mb-2"
+              >
+                {service.title}
+              </motion.h3>
+
+              <motion.p
+                variants={{
+                  hover: { opacity: 0.95, y: -2 },
+                }}
+                transition={{ duration: 0.3 }}
+                className="text-sm text-gray-600 leading-relaxed"
+              >
+                {service.text}
+              </motion.p>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
-
-      {/* Main Heading */}
-      <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center text-gray-900 leading-tight mb-4">
-        Unlock Digital Growth with{" "}
-        <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
-          Impactful
-        </span>{" "}
-        Services
-      </h2>
-
-      {/* Subtext */}
-      <p className="text-center text-gray-600 max-w-2xl mx-auto text-base sm:text-lg font-medium mb-12">
-        Discover how our tailored digital solutions can transform your brand's
-        presence, performance, and profit.
-      </p>
-
-      {/* Services Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 max-w-7xl mx-auto">
-        {services.map((service, index) => (
-          <div
-            key={index}
-            className="group bg-white border border-purple-100 rounded-2xl p-6 shadow-md flex flex-col gap-4 transition duration-300 hover:ring-2 hover:ring-purple-300 hover:border-transparent"
-          >
-            <div>{service.icon}</div>
-            <h3 className="text-xl font-semibold text-purple-800 group-hover:bg-gradient-to-r group-hover:from-purple-500 group-hover:to-pink-500 group-hover:text-transparent group-hover:bg-clip-text transition">
-              {service.title}
-            </h3>
-            <p className="text-gray-700 text-base font-medium leading-relaxed group-hover:bg-gradient-to-r group-hover:from-purple-500 group-hover:to-pink-500 group-hover:text-transparent group-hover:bg-clip-text transition">
-              {service.text}
-            </p>
-          </div>
-        ))}
-      </div>
-    </motion.section>
+    </section>
   );
 };
 

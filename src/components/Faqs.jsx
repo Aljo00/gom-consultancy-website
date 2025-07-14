@@ -83,10 +83,10 @@ const Faqs = ({ showAll = false }) => {
       variants={sectionVariants}
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
-      className="w-full py-20 px-4 md:px-12"
+      className="w-full py-20 px-4 md:px-12 bg-[#f9fafb]"
       id="faqs"
     >
-      {/* Capsule Heading */}
+      {/* Capsule */}
       <div className="text-center mb-4">
         <p className="inline-flex items-center gap-2 px-4 py-1 rounded-full font-medium border border-purple-300 text-sm bg-purple-100 text-purple-700">
           <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white p-1 rounded-full">
@@ -95,6 +95,7 @@ const Faqs = ({ showAll = false }) => {
           FAQs
         </p>
       </div>
+
       {/* Hero Text */}
       <h2 className="text-3xl md:text-5xl font-extrabold mb-12 text-center text-black">
         Frequently{" "}
@@ -102,18 +103,19 @@ const Faqs = ({ showAll = false }) => {
           Asked Questions
         </span>
       </h2>
-      {/* FAQ List */}
-      <div className="max-w-5xl mx-auto space-y-10">
+
+      {/* Accordion List */}
+      <div className="max-w-5xl mx-auto space-y-6">
         {displayedFaqs.map((faq, i) => (
           <div
             key={i}
-            className="border-b border-gray-300/20 pb-4 transition-all duration-300"
+            className="bg-white rounded-xl shadow-md transition-all duration-300 border border-gray-200"
           >
             <div
-              className="flex items-center justify-between cursor-pointer"
+              className="flex items-center justify-between px-6 py-5 cursor-pointer"
               onClick={() => toggle(i)}
             >
-              <h3 className="text-lg md:text-xl font-semibold flex items-center text-black">
+              <h3 className="text-base md:text-lg font-semibold text-gray-900">
                 {faq.question}
               </h3>
               <motion.span
@@ -134,9 +136,11 @@ const Faqs = ({ showAll = false }) => {
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <p className="text-gray-700 mt-4 text-[1rem] font-medium leading-relaxed">
-                    {faq.answer}
-                  </p>
+                  <div className="px-6 pb-5">
+                    <p className="text-gray-700 text-[1rem] font-medium leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </div>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -144,7 +148,7 @@ const Faqs = ({ showAll = false }) => {
         ))}
       </div>
 
-      {/* Load More Button */}
+      {/* CTA */}
       {!showAll && (
         <div className="text-center mt-12">
           <Link

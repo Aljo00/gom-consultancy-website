@@ -7,6 +7,7 @@ import ceoImage from "../assets/CEO.jpg";
 // Lazy load heavy components
 const Values = lazy(() => import("../components/Values"));
 const Team = lazy(() => import("../components/Team"));
+const ProjectIdeaCTA = lazy(() => import("../components/ProjectIdeaCTA"));
 
 const About = () => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
@@ -114,6 +115,7 @@ const About = () => {
       >
         <Values />
         <Team />
+        <ProjectIdeaCTA />
       </Suspense>
     </motion.section>
   );
