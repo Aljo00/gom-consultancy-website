@@ -4,31 +4,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import logo from "../assets/Gom Digital consultancy.png";
 
-const servicesList = [
-  "Content & Social Media Marketing",
-  "YouTube Automation & Management",
-  "YouTube Growth Plan",
-  "Marketing & Sales Generation",
-  "Web Development",
-  "UI/UX Designing",
-  "Personal Branding",
-  "Branding & Storytelling",
-  "Video Production & Ads",
-  "Influencer & UGC Marketing",
-  "Strategic Content Creation",
-  "Personal Portfolio",
-  "Landing Pages",
-  "CMS Integration",
-  "Full Website Development",
-  "Hosting & Deployment",
-  "SEO-Friendly Development",
-  "Custom Website",
-];
-
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [showDropdown, setShowDropdown] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
@@ -72,13 +50,9 @@ const Navbar = () => {
               <Link to="/about" className={navLinkStyle}>
                 About
               </Link>
-              <span
-                onMouseEnter={() => setShowDropdown(true)}
-                onMouseLeave={() => setShowDropdown(false)}
-                className={navLinkStyle + " cursor-pointer"}
-              >
+              <Link to="/services" className={navLinkStyle}>
                 Services
-              </span>
+              </Link>
               <Link to="/faqs" className={navLinkStyle}>
                 FAQs
               </Link>
@@ -148,37 +122,6 @@ const Navbar = () => {
           </AnimatePresence>
         </div>
       </motion.nav>
-
-      {/* Dropdown Services Menu */}
-      <AnimatePresence>
-        {showDropdown && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            onMouseEnter={() => setShowDropdown(true)}
-            onMouseLeave={() => setShowDropdown(false)}
-            className="fixed z-40 top-[100px] left-0 w-full h-[70vh] overflow-auto bg-white border-t border-purple-100 px-6 py-6"
-          >
-            <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-              {servicesList.map((title, idx) => (
-                <div
-                  key={idx}
-                  className="group text-purple-700 font-medium text-sm sm:text-base relative cursor-pointer px-2 py-2"
-                >
-                  <span className="relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-gradient-to-r after:from-purple-500 after:to-pink-500 after:rounded-full after:w-0 group-hover:after:w-full after:transition-all after:duration-300">
-                    {title}
-                  </span>
-                  <span className="absolute right-2 text-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                    →
-                  </span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </>
   );
 };

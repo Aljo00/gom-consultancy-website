@@ -55,7 +55,7 @@ const services = [
   {
     icon: <FaPalette />,
     title: "UI/UX Designing",
-    text: "Great design isn’t just about beauty — it’s about user experience. Our UI/UX experts craft intuitive, user-friendly interfaces that enhance interaction and elevate your digital product",
+    text: "Great design isn’t just about beauty it’s about user experience. Our UI/UX experts craft intuitive, user-friendly interfaces that enhance interaction and elevate your digital product",
     gradient: "from-violet-500 to-purple-300",
   },
   {
@@ -97,19 +97,19 @@ const services = [
   {
     icon: <FaRocket />,
     title: "Landing pages for business",
-    text: "Strategically designed, high-converting pages tailored to highlight your services, special offers, or marketing campaigns — built to drive action, capture leads, and turn visitors into customers. Ideal for ads, product launches, service promotions, or limited-time deals.",
+    text: "Strategically designed, high-converting pages tailored to highlight your services, special offers, or marketing campaigns built to drive action, capture leads, and turn visitors into customers. Ideal for ads, product launches, service promotions, or limited-time deals.",
     gradient: "from-purple-600 to-fuchsia-500",
   },
   {
     icon: <FaGlobe />,
     title: "Full website development",
-    text: "End-to-end website development using modern technologies to deliver fast, responsive, and scalable websites — tailored to your brand, goals, and audience. From UI design to deployment, we build clean, secure, and high-performing web experiences.",
+    text: "End-to-end website development using modern technologies to deliver fast, responsive, and scalable websites tailored to your brand, goals, and audience. From UI design to deployment, we build clean, secure, and high-performing web experiences.",
     gradient: "from-purple-700 to-indigo-500",
   },
   {
     icon: <FaServer />,
     title: "Hosting and Deployment",
-    text: "We handle complete hosting and deployment for your website — ensuring it’s secure, live, and optimized for performance. From server setup to domain configuration and ongoing support, we take care of everything so you don’t have to.",
+    text: "We handle complete hosting and deployment for your website ensuring it’s secure, live, and optimized for performance. From server setup to domain configuration and ongoing support, we take care of everything so you don’t have to.",
     gradient: "from-violet-600 to-fuchsia-500",
   },
 ];
