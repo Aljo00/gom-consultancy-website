@@ -27,7 +27,7 @@ const services = [
     icon: <FaYoutube size={20} />,
     gradient: "from-rose-500 to-rose-400",
     title: "YouTube Automation & Management",
-    text: "Let us handle your YouTube channel end-to-end — from content planning and optimization to publishing and analytics — so you can focus on creating while we grow your presence.",
+    text: "Let us handle your YouTube channel end-to-end from content planning and optimization to publishing and analytics so you can focus on creating while we grow your presence.",
   },
   {
     icon: <FaRocket size={20} />,
@@ -51,7 +51,7 @@ const services = [
     icon: <FaPalette size={20} />,
     gradient: "from-fuchsia-500 to-pink-500",
     title: "UI/UX Designing",
-    text: "Great design isn’t just about beauty — it’s about user experience. Our UI/UX experts craft intuitive, user-friendly interfaces that enhance interaction and elevate your digital product.",
+    text: "Great design isn’t just about beauty it’s about user experience. Our UI/UX experts craft intuitive, user-friendly interfaces that enhance interaction and elevate your digital product.",
   },
   {
     icon: <FaUserTie size={20} />,
@@ -69,7 +69,7 @@ const services = [
     icon: <FaVideo size={20} />,
     gradient: "from-purple-500 to-violet-500",
     title: "Video Production & Ads",
-    text: "High-quality video content is essential in today’s digital world. We produce professional videos and ad creatives that captivate, communicate, and convert — from script to screen.",
+    text: "High-quality video content is essential in today’s digital world. We produce professional videos and ad creatives that captivate, communicate, and convert from script to screen.",
   },
   {
     icon: <FaUsers size={20} />,
