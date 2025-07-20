@@ -132,12 +132,14 @@ const Services = () => {
     visible: { opacity: 1, y: 0 },
   };
 
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+
   return (
     <section className="w-full pt-25 pb-24">
       <div ref={ref} className="max-w-7xl mx-auto px-4 md:px-8 text-center">
         <motion.p
           initial={{ opacity: 0, y: -20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          animate={isMobile || inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
           className="inline-flex items-center gap-2 px-4 py-1 rounded-full font-medium border border-purple-300 text-sm mb-6 bg-purple-100 text-purple-700"
         >
@@ -149,7 +151,7 @@ const Services = () => {
 
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          animate={isMobile || inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight mb-6"
         >
@@ -162,7 +164,7 @@ const Services = () => {
 
         <motion.p
           initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
+          animate={isMobile || inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.7 }}
           className="text-gray-700 max-w-3xl mx-auto text-lg font-medium mb-12"
         >

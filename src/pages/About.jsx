@@ -29,7 +29,7 @@ const About = () => {
         ref={ref}
         variants={fadeInUp}
         initial="hidden"
-        animate={inView ? "visible" : "hidden"}
+        animate={isMobile || inView ? "visible" : "hidden"} // ✅ FIXED LINE
         className="min-h-screen pt-24 py-20 px-6 md:px-12 bg-white"
       >
         {/* Capsule Heading */}
@@ -89,14 +89,13 @@ const About = () => {
             </p>
             <p>
               Eventually, I cracked the code. GOM Digital Consultancy wasn’t
-              just born from success it was built from resilience. Our
-              mission: to help creators, solopreneurs, and small brands grow
-              smart, human, and bold in the digital space.
+              just born from success it was built from resilience. Our mission:
+              to help creators, solopreneurs, and small brands grow smart,
+              human, and bold in the digital space.
             </p>
             <p>
-              We've supported 100+ creators and brands scaling YouTube
-              channels, launching businesses, and driving growth often without
-              paid ads.
+              We've supported 100+ creators and brands scaling YouTube channels,
+              launching businesses, and driving growth often without paid ads.
             </p>
             <p>
               Today, I lead a global team from Canada with the same values I
@@ -104,8 +103,8 @@ const About = () => {
               results, creativity, and care.
             </p>
             <p className="text-purple-700 font-semibold">
-              This isn’t just digital growth it’s about building something
-              real. And we’re just getting started.
+              This isn’t just digital growth it’s about building something real.
+              And we’re just getting started.
             </p>
           </div>
         </div>

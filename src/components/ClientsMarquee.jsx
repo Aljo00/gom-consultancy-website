@@ -19,6 +19,8 @@ import toshiba from "../assets/logo/toshiba.png";
 import impex from "../assets/logo/impex.png";
 import luluconnect from "../assets/logo/lulu-connect.png";
 import tvs from "../assets/logo/tvs.png";
+import bajaj from "../assets/logo/bajaj.png";
+import amritha from "../assets/logo/amritha-universecity.png"
 
 // Row 1 Clients
 const clientsRow1 = [
@@ -43,6 +45,8 @@ const clientsRow2 = [
   tvs,
   reliance,
   oppo,
+  bajaj,
+  amritha
 ];
 
 const ClientsMarquee = () => {
