@@ -78,39 +78,39 @@ const WebinarForm = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 pt-10 pb-20">
-      <div className="container mx-auto px-4 py-8 lg:py-16">
-        <div className="text-center mb-12 lg:mb-16">
-          <div className="inline-flex bg-gradient-to-r from-purple-600 to-pink-500 px-6 py-2 rounded-full items-center gap-2 mb-6 text-sm font-semibold shadow-lg text-white">
+    <div className="min-h-screen bg-white text-gray-900 pt-6 md:pt-10 pb-12 md:pb-20">
+      <div className="container mx-auto px-4 py-4 md:py-8 lg:py-16">
+        <div className="text-center mb-8 md:mb-12 lg:mb-16">
+          <div className="inline-flex bg-gradient-to-r from-purple-600 to-pink-500 px-4 md:px-6 py-2 rounded-full items-center gap-2 mb-4 md:mb-6 text-sm font-semibold shadow-lg text-white">
             <CalendarHeart size={18} />
             <span>Webinar Registration</span>
           </div>
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 max-w-3xl mx-auto">
+          <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 md:mb-6 max-w-3xl mx-auto px-2">
             Free{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-400">
               YouTube Mentorship
             </span>{" "}
             Webinar Registration
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed px-2">
             Join our exclusive online webinar and learn how to grow your brand
             and reach using YouTube. Limited seats available.
           </p>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-10 items-stretch max-w-7xl mx-auto">
+        <div className="flex flex-col lg:flex-row gap-6 md:gap-8 lg:gap-10 items-stretch max-w-7xl mx-auto">
           <div className="w-full lg:w-1/2 max-h-[580px]">
-            <div className="relative overflow-hidden rounded-2xl shadow-2xl border border-gray-200 h-full">
+            <div className="relative overflow-hidden rounded-xl md:rounded-2xl shadow-xl md:shadow-2xl border border-gray-200 h-full">
               <video
                 src={webinarVideo}
-                className="w-full h-full object-cover aspect-[9/16] rounded-2xl"
+                className="w-full h-full object-cover aspect-[9/16] rounded-xl md:rounded-2xl"
                 autoPlay
                 playsInline
                 controls
                 preload="metadata"
               />
             </div>
-            <div className="mt-6 grid grid-cols-3 gap-4 text-center">
+            <div className="mt-4 md:mt-6 grid grid-cols-3 gap-2 md:gap-4 text-center">
               {[
                 { label: "Happy youtubers", value: "40+" },
                 { label: "Interactive", value: "Live" },
@@ -118,12 +118,12 @@ const WebinarForm = () => {
               ].map((stat, i) => (
                 <div
                   key={i}
-                  className="bg-white border border-gray-200 rounded-xl p-4 shadow-sm"
+                  className="bg-white border border-gray-200 rounded-lg md:rounded-xl p-2 md:p-4 shadow-sm"
                 >
-                  <div className="text-2xl font-bold text-purple-600">
+                  <div className="text-lg md:text-2xl font-bold text-purple-600">
                     {stat.value}
                   </div>
-                  <div className="text-sm text-gray-500">{stat.label}</div>
+                  <div className="text-xs md:text-sm text-gray-500">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -132,17 +132,17 @@ const WebinarForm = () => {
           <div className="w-full lg:w-1/2 max-h-[580px]">
             <form
               onSubmit={handleSubmit}
-              className="h-full bg-white shadow-2xl border border-gray-200 rounded-3xl p-8 lg:p-10 flex flex-col justify-between"
+              className="h-full bg-white shadow-xl md:shadow-2xl border border-gray-200 rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 flex flex-col justify-between"
             >
               <div>
-                <h2 className="text-2xl lg:text-3xl font-bold mb-3 text-gray-900">
+                <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-2 md:mb-3 text-gray-900">
                   Secure Your Seat
                 </h2>
-                <p className="text-gray-500 mb-8">
+                <p className="text-gray-500 mb-6 md:mb-8 text-sm md:text-base">
                   Fill in your details to get instant access
                 </p>
-                <div className="space-y-6">
-                  <div className="space-y-2">
+                <div className="space-y-4 md:space-y-6">
+                  <div className="space-y-1 md:space-y-2">
                     <label className="text-sm font-medium text-gray-700">
                       Name
                     </label>
