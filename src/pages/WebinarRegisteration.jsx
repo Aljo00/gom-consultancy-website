@@ -112,7 +112,7 @@ const WebinarForm = () => {
             </div>
             <div className="mt-6 grid grid-cols-3 gap-4 text-center">
               {[
-                { label: "Registered", value: "2K+" },
+                { label: "Happy youtubers", value: "40+" },
                 { label: "Interactive", value: "Live" },
                 { label: "Access", value: "Free" },
               ].map((stat, i) => (
