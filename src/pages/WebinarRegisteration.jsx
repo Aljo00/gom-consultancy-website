@@ -78,10 +78,10 @@ const WebinarForm = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 pt-6 md:pt-10 pb-12 md:pb-20">
+    <div className="min-h-screen bg-white text-gray-900 pt-20 md:pt-10 pb-20 md:pb-20">
       <div className="container mx-auto px-4 py-4 md:py-8 lg:py-16">
-        <div className="text-center mb-8 md:mb-12 lg:mb-16">
-          <div className="inline-flex bg-gradient-to-r from-purple-600 to-pink-500 px-4 md:px-6 py-2 rounded-full items-center gap-2 mb-4 md:mb-6 text-sm font-semibold shadow-lg text-white">
+        <div className="text-center mb-6 md:mb-12 lg:mb-16">
+          <div className="inline-flex bg-gradient-to-r from-purple-600 to-pink-500 px-4 md:px-6 py-2 rounded-full items-center gap-2 mb-4 md:mb-6 text-sm font-semibold shadow-lg text-white mt-2 md:mt-0">
             <CalendarHeart size={18} />
             <span>Webinar Registration</span>
           </div>
@@ -98,12 +98,12 @@ const WebinarForm = () => {
           </p>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-6 md:gap-8 lg:gap-10 items-stretch max-w-7xl mx-auto">
-          <div className="w-full lg:w-1/2 max-h-[580px]">
+        <div className="flex flex-col-reverse lg:flex-row gap-6 md:gap-8 lg:gap-10 items-stretch max-w-7xl mx-auto">
+          <div className="w-full lg:w-1/2 max-h-[650px] md:max-h-[520px] lg:max-h-[580px] mt-6 lg:mt-0 md:pb-0">
             <div className="relative overflow-hidden rounded-xl md:rounded-2xl shadow-xl md:shadow-2xl border border-gray-200 h-full">
               <video
                 src={webinarVideo}
-                className="w-full h-full object-cover aspect-[9/16] rounded-xl md:rounded-2xl"
+                className="w-full h-full object-cover aspect-video md:aspect-[9/16] rounded-xl md:rounded-2xl"
                 autoPlay
                 playsInline
                 controls
@@ -123,7 +123,9 @@ const WebinarForm = () => {
                   <div className="text-lg md:text-2xl font-bold text-purple-600">
                     {stat.value}
                   </div>
-                  <div className="text-xs md:text-sm text-gray-500">{stat.label}</div>
+                  <div className="text-xs md:text-sm text-gray-500">
+                    {stat.label}
+                  </div>
                 </div>
               ))}
             </div>
