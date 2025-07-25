@@ -27,25 +27,32 @@ const WebinarForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validate();
-    if (Object.keys(validationErrors).length) {
+    if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       return;
     }
+
     setIsSubmitting(true);
+
     try {
-      const res = await fetch(
-        "https://script.google.com/macros/s/AKfycbxiTGc6ldnnIPyD23JtITc2H_A1EYecp-qpDuiANlPgW09DBVuPTT90bOYxLqEK5Lwq/exec",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
-        }
-      );
-      if (!res.ok) throw new Error(`Server error: ${res.status}`);
+      const url =
+        "https://script.google.com/macros/s/AKfycbx6Z3ngTZjvOMtjvJm5KvaQX6SW1yRyWOjS__h6lyd9AQKpONOxz_NuiOGlQ3cKkrqu/exec";
+
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json(); // If not using no-cors
+      console.log("Response from server:", result);
+
       setSubmitted(true);
       setFormData({ name: "", email: "", phone: "" });
     } catch (err) {
-      console.error(err);
+      console.error("Error during form submission:", err);
       alert("Something went wrong. Please try again.");
     } finally {
       setIsSubmitting(false);
