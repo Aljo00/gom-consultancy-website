@@ -12,6 +12,7 @@ import Services from "./pages/Services";
 import Terms from "./pages/Terms";
 import ScrollToTop from "./components/ScrollToTop";
 import PopupModal from "./components/PopupModal";
+import WebinarRegistrationForm from "./pages/WebinarRegisteration";
 
 function App() {
   return (
@@ -26,6 +27,10 @@ function App() {
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/services" element={<Services />} />
         <Route path="/terms" element={<Terms />} />
+        <Route
+          path="/youtube-mentorship/webinar-registration"
+          element={<WebinarRegistrationForm />}
+        />
       </Routes>
       <Footer />
       <WhatsAppButton /> {/* ✅ Add here so it's globally visible */}
