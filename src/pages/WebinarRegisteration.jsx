@@ -1,9 +1,16 @@
 import React, { useState } from "react";
 import { CheckCircle2, Loader2, CalendarHeart } from "lucide-react";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/high-res.css";
 import webinarVideo from "../assets/webinar-video.mp4";
 
 const WebinarForm = () => {
-  const [formData, setFormData] = useState({ name: "", email: "", phone: "" });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    country: "",
+  });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -13,8 +20,8 @@ const WebinarForm = () => {
     if (!formData.name.trim()) newErrors.name = "Name is required";
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email))
       newErrors.email = "Enter a valid email";
-    if (!/^[0-9]{10}$/.test(formData.phone))
-      newErrors.phone = "Enter a valid 10-digit phone number";
+    if (!formData.phone || formData.phone.length < 8)
+      newErrors.phone = "Enter a valid phone number";
     return newErrors;
   };
 
@@ -24,56 +31,66 @@ const WebinarForm = () => {
     setErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
+  const handlePhoneChange = (value, data) => {
+    setFormData((prev) => ({
+      ...prev,
+      phone: `+${value}`,
+      country: data.name,
+    }));
+    setErrors((prev) => ({ ...prev, phone: "" }));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const validationErrors = validate();
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
+
+    const newErrors = validate();
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
       return;
     }
 
     setIsSubmitting(true);
 
     try {
-      const url =
-        "https://script.google.com/macros/s/AKfycbx6Z3ngTZjvOMtjvJm5KvaQX6SW1yRyWOjS__h6lyd9AQKpONOxz_NuiOGlQ3cKkrqu/exec";
+      const response = await fetch(
+        "https://hook.eu2.make.com/v96ta5nljek1vo3r1qzjnk3g8gno9fec",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
-      const response = await fetch(url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const result = await response.json(); // If not using no-cors
-      console.log("Response from server:", result);
-
-      setSubmitted(true);
-      setFormData({ name: "", email: "", phone: "" });
-    } catch (err) {
-      console.error("Error during form submission:", err);
-      alert("Something went wrong. Please try again.");
+      if (response.ok) {
+        console.log("Form submitted successfully!");
+        setSubmitted(true);
+        setFormData({ name: "", email: "", phone: "", country: "" });
+      } else {
+        console.error("Form submission failed.");
+      }
+    } catch (error) {
+      console.error("Error during form submission:", error);
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <div className="min-h-screen bg-white text-gray-900">
+    <div className="min-h-screen bg-white text-gray-900 pt-10 pb-20">
       <div className="container mx-auto px-4 py-8 lg:py-16">
-        {/* Header */}
         <div className="text-center mb-12 lg:mb-16">
           <div className="inline-flex bg-gradient-to-r from-purple-600 to-pink-500 px-6 py-2 rounded-full items-center gap-2 mb-6 text-sm font-semibold shadow-lg text-white">
             <CalendarHeart size={18} />
             <span>Webinar Registration</span>
           </div>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 max-w-4xl mx-auto">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 max-w-3xl mx-auto">
             Free{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-400">
               YouTube Mentorship
             </span>{" "}
-            Webinar Registration Form
+            Webinar Registration
           </h1>
           <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
             Join our exclusive online webinar and learn how to grow your brand
@@ -81,13 +98,14 @@ const WebinarForm = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start max-w-7xl mx-auto">
-          {/* Video Section */}
-          <div className="order-2 lg:order-1">
-            <div className="relative overflow-hidden rounded-2xl shadow-2xl border border-gray-200 bg-white">
+        <div className="flex flex-col lg:flex-row gap-10 items-stretch max-w-7xl mx-auto">
+          <div className="w-full lg:w-1/2 max-h-[580px]">
+            <div className="relative overflow-hidden rounded-2xl shadow-2xl border border-gray-200 h-full">
               <video
                 src={webinarVideo}
-                className="w-full h-auto aspect-video object-cover rounded-2xl"
+                className="w-full h-full object-cover aspect-[9/16] rounded-2xl"
+                autoPlay
+                playsInline
                 controls
                 preload="metadata"
               />
@@ -111,47 +129,69 @@ const WebinarForm = () => {
             </div>
           </div>
 
-          {/* Form Section */}
-          <div className="order-1 lg:order-2">
+          <div className="w-full lg:w-1/2 max-h-[580px]">
             <form
               onSubmit={handleSubmit}
-              className="relative bg-white shadow-2xl border border-gray-200 rounded-3xl p-8 lg:p-10"
+              className="h-full bg-white shadow-2xl border border-gray-200 rounded-3xl p-8 lg:p-10 flex flex-col justify-between"
             >
-              <div className="mb-8">
+              <div>
                 <h2 className="text-2xl lg:text-3xl font-bold mb-3 text-gray-900">
                   Secure Your Seat
                 </h2>
-                <p className="text-gray-500">
+                <p className="text-gray-500 mb-8">
                   Fill in your details to get instant access
                 </p>
-              </div>
-              <div className="space-y-6">
-                {[
-                  { name: "name", placeholder: "Your full name" },
-                  {
-                    name: "email",
-                    placeholder: "you@example.com",
-                    type: "email",
-                  },
-                  { name: "phone", placeholder: "10-digit phone number" },
-                ].map(({ name, placeholder, type }, idx) => (
-                  <div key={idx} className="space-y-2">
-                    <label className="text-sm font-medium text-gray-700 capitalize">
-                      {name}
+                <div className="space-y-6">
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-gray-700">
+                      Name
                     </label>
                     <input
-                      name={name}
-                      type={type || "text"}
-                      placeholder={placeholder}
-                      value={formData[name]}
+                      name="name"
+                      type="text"
+                      placeholder="Your full name"
+                      value={formData.name}
                       onChange={handleChange}
-                      className="w-full border border-gray-300 px-4 py-3 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
+                      className="w-full border border-gray-300 px-4 py-3 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
                     />
-                    {errors[name] && (
-                      <p className="text-red-500 text-sm">{errors[name]}</p>
+                    {errors.name && (
+                      <p className="text-red-500 text-sm">{errors.name}</p>
                     )}
                   </div>
-                ))}
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-gray-700">
+                      Email
+                    </label>
+                    <input
+                      name="email"
+                      type="email"
+                      placeholder="you@example.com"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="w-full border border-gray-300 px-4 py-3 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    />
+                    {errors.email && (
+                      <p className="text-red-500 text-sm">{errors.email}</p>
+                    )}
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-gray-700">
+                      Phone
+                    </label>
+                    <PhoneInput
+                      country={"in"}
+                      value={formData.phone}
+                      onChange={handlePhoneChange}
+                      inputStyle={{ width: "100%" }}
+                    />
+                    {errors.phone && (
+                      <p className="text-red-500 text-sm">{errors.phone}</p>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-8">
                 <button
                   type="submit"
                   disabled={isSubmitting}
@@ -168,15 +208,15 @@ const WebinarForm = () => {
                     </span>
                   )}
                 </button>
-              </div>
-              <div className="mt-8 pt-6 border-t border-gray-200 text-sm text-gray-500 flex justify-center gap-6">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 size={16} className="text-green-500" /> Secure
-                  Registration
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 size={16} className="text-green-500" /> Instant
-                  Access
+                <div className="mt-6 pt-6 border-t border-gray-200 text-sm text-gray-500 flex justify-center gap-6">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 size={16} className="text-green-500" /> Secure
+                    Registration
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 size={16} className="text-green-500" />{" "}
+                    Instant Access
+                  </div>
                 </div>
               </div>
             </form>
@@ -184,7 +224,6 @@ const WebinarForm = () => {
         </div>
       </div>
 
-      {/* Success Modal */}
       {submitted && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
           <div className="bg-white p-8 rounded-3xl shadow-2xl max-w-md w-full text-center">
