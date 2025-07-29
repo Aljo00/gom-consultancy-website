@@ -40,10 +40,10 @@ function AppContent() {
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/services" element={<Services />} />
         <Route path="/terms" element={<Terms />} />
-        <Route
+        {/* <Route
           path="/youtube-mentorship/webinar-registration"
           element={<WebinarRegistrationForm />}
-        />
+        /> */}
       </Routes>
       <Footer />
       <WhatsAppButton />
