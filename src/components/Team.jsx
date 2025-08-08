@@ -7,6 +7,8 @@ import athulImg from "../assets/Members/Athul.jpg";
 import riyasImg from "../assets/Members/Riyas.jpg";
 import harithaImg from "../assets/Members/Haritha.jpg";
 import aljoImg from "../assets/Members/Aljo.jpg";
+import antonyImg from "../assets/Members/Antony Jaison.jpg"
+import albikImage from "../assets/Members/Albik shaju.jpg"
 
 const teamMembers = [
   {
@@ -36,6 +38,20 @@ const teamMembers = [
     description:
       "Drives the technological backbone of GOM, crafting scalable digital solutions with precision and passion. Blends creativity with code to deliver seamless, user-focused web experiences that reflect the brand’s innovation and excellence.",
     image: aljoImg,
+  },
+  {
+    name: "Antony Jaison",
+    position: "Thumbnail & Graphic Designer",
+    description:
+      "The creative mind behind GOM's visual identity. Antony designs compelling thumbnails and striking graphics that capture attention and communicate our brand's message. His artistic vision transforms ideas into impactful visuals that drive engagement and define our aesthetic.",
+    image: antonyImg,
+  },
+  {
+    name: "Albik Shaju",
+    position: "Video Editor",
+    description:
+      "Brings our video content to life in post-production. Albik meticulously edits and refines our footage, ensuring a seamless flow and a professional finish. From color grading to sound design, he elevates our raw clips into engaging stories.",
+    image: albikImage,
   },
 ];
 
