@@ -9,6 +9,9 @@ import harithaImg from "../assets/Members/Haritha.jpg";
 import aljoImg from "../assets/Members/Aljo.jpg";
 import antonyImg from "../assets/Members/Antony Jaison.jpg"
 import albikImage from "../assets/Members/Albik shaju.jpg"
+import godwinImg from "../assets/Members/Godwin Thomas.jpg"
+import adornImg from "../assets/Members/Adorn K Joshy.jpg"
+import faithImg from "../assets/Members/Faith Modiyil.jpg"
 
 const teamMembers = [
   {
@@ -33,6 +36,13 @@ const teamMembers = [
     image: harithaImg,
   },
   {
+    name: "Godwin Thomas",
+    position: "Video Editor",
+    description:
+      "The architect of our final cut. Godwin brings dynamic energy to post-production, editing our videos to be engaging, clean, and powerful. His skill in storytelling and visual polishing turns great ideas into unforgettable content.",
+    image: godwinImg,
+  },
+  {
     name: "Aljo Joju",
     position: "Developer",
     description:
@@ -52,6 +62,20 @@ const teamMembers = [
     description:
       "Brings our video content to life in post-production. Albik meticulously edits and refines our footage, ensuring a seamless flow and a professional finish. From color grading to sound design, he elevates our raw clips into engaging stories.",
     image: albikImage,
+  },
+  {
+    name: "Faith Modiyil",
+    position: "Script Writer",
+    description:
+      "The wordsmith who provides the blueprint for our content. Faith specializes in writing clear, creative, and impactful scripts that guide our production team and capture the attention of our viewers from the very first line.",
+    image: faithImg,
+  },
+  {
+    name: " Adorn K Joshy",
+    position: "Operational Manager",
+    description:
+      "The driving force behind our operational excellence. Adorn translates strategic goals into seamless daily execution, managing workflows and optimizing processes. He ensures the entire team is aligned and equipped to deliver projects with efficiency and precision.",
+    image: adornImg,
   },
 ];
 
