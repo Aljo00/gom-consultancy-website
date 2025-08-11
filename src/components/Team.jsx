@@ -37,7 +37,7 @@ const teamMembers = [
   },
   {
     name: "Godwin Thomas",
-    position: "Video Editor",
+    position: "Senior Video Editor",
     description:
       "The architect of our final cut. Godwin brings dynamic energy to post-production, editing our videos to be engaging, clean, and powerful. His skill in storytelling and visual polishing turns great ideas into unforgettable content.",
     image: godwinImg,
