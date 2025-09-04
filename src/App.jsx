@@ -18,7 +18,7 @@ import Terms from "./pages/Terms";
 import ScrollToTop from "./components/ScrollToTop";
 import PopupModal from "./components/PopupModal";
 import WebinarRegistrationForm from "./pages/WebinarRegisteration";
-import XServicePage from "./pages/XServicePage";
+// import XServicePage from "./pages/XServicePage";
 
 function AppContent() {
   const location = useLocation();
