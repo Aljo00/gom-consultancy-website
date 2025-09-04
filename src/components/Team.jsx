@@ -149,16 +149,14 @@ const Team = () => {
                   boxShadow: "0 15px 35px rgba(168, 85, 247, 0.25)",
                   transition: { duration: 0.3 },
                 }}
-                className="flex flex-col md:flex-row gap-6 flex-1 bg-white border border-purple-200 rounded-xl p-6"
+                className="flex flex-col md:flex-row gap-6 flex-1 bg-white border border-purple-200 rounded-xl p-4 md:p-6"
               >
-                {/* Image */}
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-full md:w-[240px] h-[240px] object-cover rounded-xl shadow-md"
+                  className="w-full max-w-[320px] h-auto md:w-[240px] md:h-[240px] object-cover rounded-xl shadow-md mx-auto"
                 />
 
-                {/* Text */}
                 <div className="flex flex-col justify-center text-left">
                   <h3 className="text-2xl font-bold text-purple-700">
                     {member.name}

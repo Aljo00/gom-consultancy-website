@@ -18,6 +18,7 @@ import Terms from "./pages/Terms";
 import ScrollToTop from "./components/ScrollToTop";
 import PopupModal from "./components/PopupModal";
 import WebinarRegistrationForm from "./pages/WebinarRegisteration";
+import XServicePage from "./pages/XServicePage";
 
 function AppContent() {
   const location = useLocation();
@@ -40,6 +41,7 @@ function AppContent() {
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/services" element={<Services />} />
         <Route path="/terms" element={<Terms />} />
+        {/* <Route path="/x-service" element={<XServicePage />} />{" "} */}
         {/* <Route
           path="/youtube-mentorship/webinar-registration"
           element={<WebinarRegistrationForm />}
