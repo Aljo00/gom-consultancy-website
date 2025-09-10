@@ -63,9 +63,9 @@ const teamMembers = [
   },
   {
     name: "Faith Modiyil",
-    position: "Script Writer",
+    position: "Creative Copywriter",
     description:
-      "The wordsmith who provides the blueprint for our content. Faith specializes in writing clear, creative, and impactful scripts that guide our production team and capture the attention of our viewers from the very first line.",
+      "He is our resident wordsmith, crafting clear, creative, and impactful copy that brings our ideas to life. From catchy scripts to compelling content, he sets the tone for our production team and makes sure every story grabs attention from the very first line.",
     image: faithImg,
   },
   {
