@@ -1,3 +1,20 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
+  "redirects": [
+    {
+      "source": "/assets",
+      "destination": "https://assets.gomdigitalconsultancy.com",
+      "permanent": true
+    },
+    {
+      "source": "/ytassets",
+      "destination": "https://assets.gomdigitalconsultancy.com",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
+  ]
 }
